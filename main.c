@@ -423,8 +423,9 @@ void excluir_orcamento(void){
 }    
 
 void visu_orcamento(void){
-    
+
 }
+
 
 void equipe(void) {
     int escolha;
