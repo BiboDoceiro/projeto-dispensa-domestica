@@ -414,6 +414,9 @@ void cadastrar_orcamento(){
     printf("Valor gasto: %.2f\n", valor_gasto);
 
 }
+void editar_orcamento(void){
+
+} 
     
 
 void equipe(void) {
