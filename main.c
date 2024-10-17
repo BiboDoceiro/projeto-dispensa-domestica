@@ -15,10 +15,16 @@
 
 void inicio_login(void);
 void exibir_menu(void);
-void cadastro_Pessoa(void);
+void cadastro_essoa(void);
 void produtos(void);
 void controle_estoque(void);
-void orcamento(void);
+
+void menu_orcamento(void);
+void cadastrar_orcamento(void);
+void editar_orcamento(void);  
+void excluir_orcamento(void); 
+void visu_resumo(void);       
+
 void equipe(void);
 
 int main(void) {
@@ -26,11 +32,6 @@ int main(void) {
     printf("Bem vindo ao seu controle de despesas\n");
     inicio_login();   
     exibir_menu();    
-    cadastro_Pessoa();
-    produtos();
-    controle_estoque();
-    orcamento();
-    equipe();
     return 0;
 }
 
@@ -47,7 +48,7 @@ void inicio_login(void) {
     printf("----------------------------------------|\n");
     printf("#### Selecione uma das opções: \n");
     scanf("%d", &escolha);
-    getchar();  // Para consumir o '\n' deixado pelo scanf
+    getchar();  
     switch (escolha) {
         case 1:
             printf("Login selecionado.\n");
@@ -75,17 +76,17 @@ void exibir_menu(void) {
         printf("/////////////////////////////////////////////////////////////////////\n");
         printf("#### Selecione uma das opções: \n");
         scanf("%d", &escolha);
-        getchar();  // Consumir o '\n'
+        getchar();  
         
         switch (escolha) {
             case 1:
-                cadastro_Pessoa();
+                cadastro_pessoa();
                 break;
             case 2:
                 produtos();
                 break;
             case 3:
-                orcamento();
+                menu_orcamento();
                 break;
             case 4:
                 controle_estoque();
@@ -103,7 +104,7 @@ void exibir_menu(void) {
     } while (escolha != 0);
 }
 
-void cadastro_Pessoa(void) {
+void cadastro_pessoal(void) {
     int escolha;
     char id[20];  
     char nome[50];
@@ -111,12 +112,14 @@ void cadastro_Pessoa(void) {
     char data_nascimento[11]; 
 
     printf("/////////////////////////////////////////////////////////////////////\n");
-    printf("///           = = = = = = = Cadastro Pessoal = = = = = = =           ///\n");
+    printf("///          = = = = = = = Cadastro Pessoa = = = = = = =          ///\n");
     printf("/////////////////////////////////////////////////////////////////////\n");
 
     printf("#### Selecione uma das opções: \n");
     printf("1. Cadastrar Pessoa\n");
-    printf("2. Sair\n");
+    printf("2. Pesquisar Pessoa\n");
+    printf("3. Editar Pessoa   \n");
+    printf("4. Sair\n");
     scanf("%d", &escolha);
     getchar();  
 
@@ -124,7 +127,7 @@ void cadastro_Pessoa(void) {
         case 1:
             printf("Digite o ID: ");
             fgets(id, 20, stdin);
-            id[strcspn(id, "\n")] = '\0';  // Remover o '\n'
+            id[strcspn(id, "\n")] = '\0';  
 
             printf("Digite o Nome completo: ");
             fgets(nome, 50, stdin);
@@ -146,8 +149,15 @@ void cadastro_Pessoa(void) {
             break;
 
         case 2:
-            printf("Saindo do cadastro.\n");
+            printf("Pesquisar Pessoa.\n");
             break;
+        
+        case 3:
+            printf("Editar Pessoa.\n");
+            break;
+        
+        case 4:
+    
 
         default:
             printf("Opção inválida! Por favor, tente novamente.\n");
@@ -304,13 +314,9 @@ void controle_estoque(void) {
     }
 
 
-void orcamento(void) {
+void menu_orcamento(void) {
     int escolha;
-    char id_codigo[20];       
-    char data[11];            
-    char hora[6];             
-    int quantidade;           
-    float valor_gasto;
+    do{
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////"
             "//////////\n");
@@ -324,15 +330,15 @@ void orcamento(void) {
             "       ///\n");
     printf("///                                                                  "
             "       ///\n");
-    printf("///            ID-codigo-de-barra:                                   "
+    printf("///            1.Cadastrar novo orçamento:                           "
             "       ///\n");
-    printf("///            Data:                                                 "
+    printf("///            2.Editar orçamento existente:                         "
             "       ///\n");
-    printf("///            Hora:                                                 "
+    printf("///            3.Excluir orçamento:                                  "
             "       ///\n");
-    printf("///            Quantidade:                                           "
+    printf("///            4.Visualizar resumo:                                  "
             "       ///\n");
-    printf("///            Valor gasto:                                          "
+    printf("///            0.Sair:                                               "
             "       ///\n");
     printf("///                                                                  "
             "       ///\n");
@@ -346,43 +352,68 @@ void orcamento(void) {
     getchar();
         switch (escolha) {
                 case 1:
-                    printf("Digite o ID-código-de-barra: ");
-                    fgets(id_codigo, 20, stdin);
-                    id_codigo[strcspn(id_codigo, "\n")] = '\0';  
-
-                    printf("Digite a Data (dd/mm/aaaa): ");
-                    fgets(data, 11, stdin);
-                    data[strcspn(data, "\n")] = '\0';  
-
-                    printf("Digite a Hora (hh:mm): ");
-                    fgets(hora, 6, stdin);
-                    hora[strcspn(hora, "\n")] = '\0'; 
-
-                    printf("Digite a Quantidade: ");
-                    scanf("%d", &quantidade);
-                    getchar();  
-
-                    printf("Digite o Valor gasto: ");
-                    scanf("%f", &valor_gasto);
-                    getchar();  
-
-                    printf("\nCadastro de orçamento realizado com sucesso!\n");
-                    printf("ID-código-de-barra: %s\n", id_codigo);
-                    printf("Data: %s\n", data);
-                    printf("Hora: %s\n", hora);
-                    printf("Quantidade: %d\n", quantidade);
-                    printf("Valor gasto: %.2f\n", valor_gasto);
+                    cadastrar_orcamento();
                     break;
 
                 case 2:
-                    printf("Saindo do orçamento.\n");
+                    editar_orcamento();
                     break;
-
+                
+                case 3:
+                    excluir_orcamento();
+                    break;
+                
+                case 4:
+                    visu_resumo();
+                    break;
+                
+                case 0:
+                    
+                
                 default:
-                    printf("Opção inválida! Por favor, tente novamente.\n");
+                    printf("\t\t\t>Opção inválida! Tente novamente.\n");           
+                    printf("///////////////////////////////////////////////////////////////////////////////\n");
+                    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
                     break;
             }
-        }
+
+        }while (escolha != 0);
+}
+void cadastrar_orcamento(){
+    char id_codigo[20];       
+    char data[11];            
+    char hora[6];             
+    int quantidade;           
+    float valor_gasto;
+
+    printf("Digite o ID-código-de-barra: ");
+    fgets(id_codigo, 20, stdin);
+    id_codigo[strcspn(id_codigo, "\n")] = '\0';  
+
+    printf("Digite a Data (dd/mm/aaaa): ");
+    fgets(data, 11, stdin);
+    data[strcspn(data, "\n")] = '\0';  
+
+    printf("Digite a Hora (hh:mm): ");
+    fgets(hora, 6, stdin);
+    hora[strcspn(hora, "\n")] = '\0'; 
+
+    printf("Digite a Quantidade: ");
+    scanf("%d", &quantidade);
+    getchar();  
+
+    printf("Digite o Valor gasto: ");
+    scanf("%f", &valor_gasto);
+    getchar();  
+
+    printf("\nCadastro de orçamento realizado com sucesso!\n");
+    printf("ID-código-de-barra: %s\n", id_codigo);
+    printf("Data: %s\n", data);
+    printf("Hora: %s\n", hora);
+    printf("Quantidade: %d\n", quantidade);
+    printf("Valor gasto: %.2f\n", valor_gasto);
+
+}
     
 
 void equipe(void) {
