@@ -29,10 +29,11 @@ void cadastro_pessoa(void) {
     printf("CPF: %s\n", pessoa.cpf);
 }
 
-void pesquisar_cliente(void){
+void pesquisar_pessoa(void){
 
 }
 
-void editar_cliente(void){
-    
+void editar_pessoa(void){
+
 }
+
