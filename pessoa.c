@@ -30,5 +30,9 @@ void cadastro_pessoa(void) {
 }
 
 void pesquisar_cliente(void){
+
+}
+
+void editar_cliente(void){
     
 }
