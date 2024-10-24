@@ -12,6 +12,7 @@
 #include <locale.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "pessoa.h"  
 
 void inicio_login(void);
 void exibir_menu(void);
