@@ -28,3 +28,7 @@ void cadastro_pessoa(void) {
     printf("Idade: %d\n", pessoa.idade);
     printf("CPF: %s\n", pessoa.cpf);
 }
+
+void pesquisar_cliente(void){
+    
+}
