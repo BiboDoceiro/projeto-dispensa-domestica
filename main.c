@@ -119,7 +119,8 @@ void cadastro_pessoal(void) {
     printf("1. Cadastrar Pessoa\n");
     printf("2. Pesquisar Pessoa\n");
     printf("3. Editar Pessoa   \n");
-    printf("4. Sair\n");
+    printf("4. Excluir Pessoa  \n");
+    printf("5. Sair\n");
     scanf("%d", &escolha);
     getchar();  
 
