@@ -15,10 +15,9 @@
 
 void inicio_login(void);
 void exibir_menu(void);
-void cadastro_essoa(void);
+void cadastro_pessoa(void);
 void produtos(void);
 void controle_estoque(void);
-
 void menu_orcamento(void);
 void cadastrar_orcamento(void);
 void editar_orcamento(void);  
