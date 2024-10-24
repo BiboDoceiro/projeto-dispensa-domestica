@@ -37,3 +37,6 @@ void editar_pessoa(void){
 
 }
 
+void excluir_pessoa(void){
+    
+}
