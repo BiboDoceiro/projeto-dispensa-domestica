@@ -5,7 +5,7 @@
 
 
 void menu_cadastro_pessoal(void){
-    int opcao;
+    int escolha;
     do{
         system("clear||cls");
         printf("\n");
@@ -17,7 +17,7 @@ void menu_cadastro_pessoal(void){
         printf("///                                                                         ///\n");
         printf("///////////////////////////////////////////////////////////////////////////////\n");
         printf("///                                                                         ///\n");
-        printf("///            = = = = = = = = = Menu Morador = = = = = = = = =             ///\n");
+        printf("///            = = = = = = = = = Menu Pessoa = = = = = = = = =              ///\n");
         printf("///                                                                         ///\n");
         printf("///            1. Cadastrar uma nova pessoa                                 ///\n");
         printf("///            2. Pesquisar pessoas                                         ///\n");
@@ -26,9 +26,9 @@ void menu_cadastro_pessoal(void){
         printf("///            0. Voltar ao menu anterior                                   ///\n");
         printf("///                                                                         ///\n");
         printf("///            Escolha a opção desejada: ");
-        scanf("%d", &opcao);
+        scanf("%d", &escolha);
         getchar();
-        switch (opcao)
+        switch (escolha)
         {
         case 1:
             cadastrar_pessoa();
@@ -55,4 +55,36 @@ void menu_cadastro_pessoal(void){
     } while (opcao != 0);
 }
 
+void cadastrar_pessoa(void){
+    char nome[50];
+    char idade[5];
+    char email[50];
+    char tel[17];
+    char cpf[13];
 
+    printf("\n///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///            = = = = = Cadastrar Nova Pessoa = = = = = = = = = = = = =    ///\n");
+    printf("///                                                                         ///\n");
+    printf("/// Informe os dados da pessoa:                                             ///\n");
+    printf("///            Nome: ");
+    fgets(nome, sizeof(nome), stdin);
+    printf("///            Idade: ");
+    fgets(idade, sizeof(idade), stdin);
+    printf("///            E-mail: ");
+    fgets(email, sizeof(email), stdin);
+    printf("///            Telefone: ");
+    fgets(tel, sizeof(tel), stdin);
+    printf("///            CPF: ");
+    fgets(cpf, sizeof(cpf), stdin);
+
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///            Pessoa cadastrado com sucesso!                               ///\n");
+    printf("///            Nome: %s", nome);
+    printf("///            Idade: %s", idade);
+    printf("///            E-mail: %s", email);
+    printf("///            Tel: %s", tel);
+    printf("///            CPF: %s", cpf);
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+    getchar();  // Aguarda o usuário pressionar ENTER antes de voltar ao menu
+}
