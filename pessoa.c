@@ -101,3 +101,16 @@ void pesquisar_pessoa(void) {
     printf("\n\t\t\t>>> Tecle <ENTER> para continuar...\n");
     getchar();  // Aguarda o usuário pressionar ENTER antes de voltar ao menu
 }
+
+void editar_pessoa(void) {
+    char cpf[13];
+    printf("\n///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///            = = = = = Editar Pessoa = = = = = = = = = = = = =            ///\n");
+    printf("///                                                                         ///\n");
+    printf("/// Informe o CPF da pessoa que deseja atualizar: ");
+    fgets(cpf, sizeof(cpf), stdin);
+    // Código para editar a pessoa
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n\t\t\t>>> Tecle <ENTER> para continuar...\n");
+    getchar();  // Aguarda o usuário pressionar ENTER antes de voltar ao menu
+}
