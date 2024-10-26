@@ -37,7 +37,7 @@ void menu_cadastro_pessoal(void){
             pesquisar_pessoa();
             break;
         case 3:
-            atualizar_pessoa();
+            editar_pessoa();
             break;
         case 4:
             excluir_pessoa();
