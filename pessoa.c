@@ -88,3 +88,16 @@ void cadastrar_pessoa(void){
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
     getchar();  // Aguarda o usuário pressionar ENTER antes de voltar ao menu
 }
+
+void pesquisar_pessoa(void) {
+    char cpf[13];
+    printf("\n///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///            = = = = = Pesquisar Pessoa = = = = = = = = = = = = =         ///\n");
+    printf("///                                                                         ///\n");
+    printf("/// Informe o CPF da pessoa para pesquisa: ");
+    fgets(cpf, sizeof(cpf), stdin);
+    // Código para pesquisar a pessoa
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n\t\t\t>>> Tecle <ENTER> para continuar...\n");
+    getchar();  // Aguarda o usuário pressionar ENTER antes de voltar ao menu
+}
