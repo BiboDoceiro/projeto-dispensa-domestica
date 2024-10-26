@@ -32,15 +32,15 @@ void menu_cadastro_pessoal(void){
         {
         case 1:
             cadastrar_pessoa();
-            break; /*Termina o bloco case. Isso impede que os outros casos sejam executados depois de executar este.*/
+            break; //Termina o bloco case. Isso impede que os outros casos sejam executados depois de executar este.
         case 2:
-            pesquisar_morador();
+            pesquisar_pessoa();
             break;
         case 3:
-            atualizar_morador();
+            atualizar_pessoa();
             break;
         case 4:
-            excluir_morador();
+            excluir_pessoa();
             break;
         case 0:
         
