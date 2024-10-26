@@ -114,3 +114,16 @@ void editar_pessoa(void) {
     printf("\n\t\t\t>>> Tecle <ENTER> para continuar...\n");
     getchar();  // Aguarda o usuário pressionar ENTER antes de voltar ao menu
 }
+
+void excluir_pessoa(void) {
+    char cpf[13];
+    printf("\n///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///            = = = = = Excluir Pessoa = = = = = = = = = = = = =           ///\n");
+    printf("///                                                                         ///\n");
+    printf("/// Informe o CPF da pessoa que deseja excluir: ");
+    fgets(cpf, sizeof(cpf), stdin);
+    // Código para excluir a pessoa 
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n\t\t\t>>> Tecle <ENTER> para continuar...\n");
+    getchar();  // Aguarda o usuário pressionar ENTER antes de voltar ao menu
+}
