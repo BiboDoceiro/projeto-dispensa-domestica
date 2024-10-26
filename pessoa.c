@@ -52,7 +52,7 @@ void menu_cadastro_pessoal(void){
             printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
             getchar();
         }
-    } while (opcao != 0);
+    } while (escolha != 0);
 }
 
 void cadastrar_pessoa(void){
