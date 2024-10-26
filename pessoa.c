@@ -1,42 +1,58 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "cadastro_pessoa.h"
+#include "pessoa.h"
 
 
-void cadastro_pessoa(void) {
-    Pessoa pessoa;  
-
-    printf("=== Cadastro de Pessoa ===\n");
-
-    // Coleta dos dados do usuário
-    printf("Digite o nome: ");
-    fgets(pessoa.nome, sizeof(pessoa.nome), stdin);
-    pessoa.nome[strcspn(pessoa.nome, "\n")] = '\0';  
-
-    printf("Digite a idade: ");
-    scanf("%d", &pessoa.idade);
-    getchar();  
-
-    printf("Digite o CPF (somente números): ");
-    fgets(pessoa.cpf, sizeof(pessoa.cpf), stdin);
-    pessoa.cpf[strcspn(pessoa.cpf, "\n")] = '\0';  
-
-    // Exibe os dados cadastrados
-    printf("\nPessoa cadastrada:\n");
-    printf("Nome: %s\n", pessoa.nome);
-    printf("Idade: %d\n", pessoa.idade);
-    printf("CPF: %s\n", pessoa.cpf);
+void menu_cadastro_pessoal(void){
+    int opcao;
+    do{
+        system("clear||cls");
+        printf("\n");
+        printf("///////////////////////////////////////////////////////////////////////////////\n");
+        printf("///                                                                         ///\n");
+        printf("///            ===================================================          ///\n");
+        printf("///            = = = =              SigFinance             = = = =          ///\n");
+        printf("///            ===================================================          ///\n");
+        printf("///                                                                         ///\n");
+        printf("///////////////////////////////////////////////////////////////////////////////\n");
+        printf("///                                                                         ///\n");
+        printf("///            = = = = = = = = = Menu Morador = = = = = = = = =             ///\n");
+        printf("///                                                                         ///\n");
+        printf("///            1. Cadastrar uma nova pessoa                                 ///\n");
+        printf("///            2. Pesquisar pessoas                                         ///\n");
+        printf("///            3. Editar o cadastro de uma pessoa                           ///\n");
+        printf("///            4. Excluir uma pessoa                                        ///\n");
+        printf("///            0. Voltar ao menu anterior                                   ///\n");
+        printf("///                                                                         ///\n");
+        printf("///            Escolha a opção desejada: ");
+        scanf("%d", &opcao);
+        getchar();
+        switch (opcao)
+        {
+        case 1:
+            cadastrar_pessoa();
+            break; /*Termina o bloco case. Isso impede que os outros casos sejam executados depois de executar este.*/
+        case 2:
+            pesquisar_morador();
+            break;
+        case 3:
+            atualizar_morador();
+            break;
+        case 4:
+            excluir_morador();
+            break;
+        case 0:
+        
+            break;
+        default: // Se nenhum dos valores anteriores (1, 2, 3, 4 ou 0) for selecionado, este bloco é executado.
+            printf("\t\t\t>Opção inválida! Tente novamente.\n");
+            printf("///                                                                         ///\n");
+            printf("///////////////////////////////////////////////////////////////////////////////\n");
+            printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+            getchar();
+        }
+    } while (opcao != 0);
 }
 
-void pesquisar_pessoa(void){
 
-}
-
-void editar_pessoa(void){
-
-}
-
-void excluir_pessoa(void){
-    
-}
