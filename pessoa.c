@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include "pessoa.h"
 
 
@@ -12,7 +11,7 @@ void menu_cadastro_pessoal(void){
         printf("///////////////////////////////////////////////////////////////////////////////\n");
         printf("///                                                                         ///\n");
         printf("///            ===================================================          ///\n");
-        printf("///            = = = =              SigFinance             = = = =          ///\n");
+        printf("///            = = = =           Despensa domestica        = = = =          ///\n");
         printf("///            ===================================================          ///\n");
         printf("///                                                                         ///\n");
         printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -89,7 +88,7 @@ void cadastrar_pessoa(void){
     getchar();  // Aguarda o usuário pressionar ENTER antes de voltar ao menu
 }
 
-void pesquisar_pessoa(void) {
+void pesquisar_pessoa(void){
     char cpf[13];
     printf("\n///////////////////////////////////////////////////////////////////////////////\n");
     printf("///            = = = = = Pesquisar Pessoa = = = = = = = = = = = = =         ///\n");
@@ -102,7 +101,7 @@ void pesquisar_pessoa(void) {
     getchar();  // Aguarda o usuário pressionar ENTER antes de voltar ao menu
 }
 
-void editar_pessoa(void) {
+void editar_pessoa(void){
     char cpf[13];
     printf("\n///////////////////////////////////////////////////////////////////////////////\n");
     printf("///            = = = = = Editar Pessoa = = = = = = = = = = = = =            ///\n");
@@ -115,7 +114,7 @@ void editar_pessoa(void) {
     getchar();  // Aguarda o usuário pressionar ENTER antes de voltar ao menu
 }
 
-void excluir_pessoa(void) {
+void excluir_pessoa(void){
     char cpf[13];
     printf("\n///////////////////////////////////////////////////////////////////////////////\n");
     printf("///            = = = = = Excluir Pessoa = = = = = = = = = = = = =           ///\n");
