@@ -88,3 +88,16 @@ void pesquisar_orcamento(void) {
     printf("\n\t\t\t>>> Tecle <ENTER> para continuar...\n");
     getchar();
 }
+
+void editar_orcamento(void) {
+    char descricao[100];
+    printf("\n///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///            = = = = = Editar Orçamento = = = = = = = = = = = = =         ///\n");
+    printf("///                                                                         ///\n");
+    printf("/// Informe a descrição do orçamento que deseja atualizar: ");
+    fgets(descricao, sizeof(descricao), stdin);
+    // Código para editar o orçamento
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n\t\t\t>>> Tecle <ENTER> para continuar...\n");
+    getchar();
+}
