@@ -75,3 +75,16 @@ void cadastrar_orcamento(void) {
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
     getchar();
 }
+
+void pesquisar_orcamento(void) {
+    char descricao[100];
+    printf("\n///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///            = = = = = Pesquisar Orçamento = = = = = = = = = = = = =      ///\n");
+    printf("///                                                                         ///\n");
+    printf("/// Informe a descrição do orçamento para pesquisa: ");
+    fgets(descricao, sizeof(descricao), stdin);
+    // Código para pesquisar o orçamento
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n\t\t\t>>> Tecle <ENTER> para continuar...\n");
+    getchar();
+}
