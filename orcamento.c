@@ -49,3 +49,29 @@ void menu_cadastro_orcamento(void) {
         }
     } while (escolha != 0);
 }
+
+void cadastrar_orcamento(void) {
+    char descricao[100];
+    char valor[20];
+    char data[11];
+
+    printf("\n///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///            = = = = = Cadastrar Novo Orçamento = = = = = = = = = = = =   ///\n");
+    printf("///                                                                         ///\n");
+    printf("/// Informe os dados do orçamento:                                          ///\n");
+    printf("///            Descrição: ");
+    fgets(descricao, sizeof(descricao), stdin);
+    printf("///            Valor: ");
+    fgets(valor, sizeof(valor), stdin);
+    printf("///            Data (dd/mm/yyyy): ");
+    fgets(data, sizeof(data), stdin);
+
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///            Orçamento cadastrado com sucesso!                            ///\n");
+    printf("///            Descrição: %s", descricao);
+    printf("///            Valor: %s", valor);
+    printf("///            Data: %s", data);
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+    getchar();
+}
