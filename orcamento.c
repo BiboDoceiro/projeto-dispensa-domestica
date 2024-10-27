@@ -101,3 +101,16 @@ void editar_orcamento(void) {
     printf("\n\t\t\t>>> Tecle <ENTER> para continuar...\n");
     getchar();
 }
+
+void excluir_orcamento(void) {
+    char descricao[100];
+    printf("\n///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///            = = = = = Excluir Orçamento = = = = = = = = = = = = =        ///\n");
+    printf("///                                                                         ///\n");
+    printf("/// Informe a descrição do orçamento que deseja excluir: ");
+    fgets(descricao, sizeof(descricao), stdin);
+    // Código para excluir o orçamento
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n\t\t\t>>> Tecle <ENTER> para continuar...\n");
+    getchar();
+}
