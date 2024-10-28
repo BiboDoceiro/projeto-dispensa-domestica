@@ -15,8 +15,7 @@
 #include "pessoa.h"  
 #include "orcamento.h"
 #include "relatorio.h"
-
-
+#include "produtos.h"
 
 
 void exibir_menu(void);
