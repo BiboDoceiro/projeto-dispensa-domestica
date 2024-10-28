@@ -69,12 +69,12 @@
 
 
 void menu_produto(){
-    int opcao;
+    int escolha;
     do{   
         system("clear||cls");
         printf("\n");
         printf("///////////////////////////////////////////////////////////////////////////////\n");
-        printf("///            = = = = = = = = = Menu Tarefas = = = = = = = = =             ///\n");
+        printf("///            = = = = = = = = = Menu Produtos = = = = = = = = =             ///\n");
         printf("///                                                                         ///\n");
         printf("///            1. Cadastrar um Produto                                      ///\n");
         printf("///            2. Pesquisar os Produtos                                      ///\n");
@@ -83,9 +83,9 @@ void menu_produto(){
         printf("///            0. Voltar ao menu anterior                                   ///\n");
         printf("///                                                                         ///\n");
         printf("///            Escolha a opção desejada: ");
-        scanf("%d", &opcao);
+        scanf("%d", &escolha);
         getchar();
-        switch (opcao)
+        switch (escolha)
         {
         case 1:
             cadastrar_produto();
@@ -110,7 +110,7 @@ void menu_produto(){
             printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
             break;
         }
-    } while (opcao != 0);
+    } while (escolha != 0);
 }
 
 void cadastrar_produto(){
