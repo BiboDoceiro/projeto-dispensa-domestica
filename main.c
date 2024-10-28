@@ -14,6 +14,9 @@
 #include <stdlib.h>
 #include "pessoa.h"  
 #include "orcamento.h"
+#include "relatorio.h"
+
+
 
 void inicio_login(void);
 void exibir_menu(void);
