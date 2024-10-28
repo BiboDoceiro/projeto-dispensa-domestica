@@ -68,7 +68,7 @@
 
 
 
-void menu_tarefas(){
+void menu_produto(){
     int opcao;
     do{   
         system("clear||cls");
