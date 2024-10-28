@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "tarefas.h"
+#include "produtos.h"
 
 
 // isso tudo estava no main e ira ser modificado na modularizacao de produtos, esta como base apenas
