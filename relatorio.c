@@ -39,3 +39,10 @@ void menu_relatorios(void){
         
     } while (escolha != 0);
 }
+void relatorios_pessoa(void)
+{
+    printf("\n///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///            = = = = = Relatório de Pessoas = = = =                       ///\n");
+    // Implementar a geração do relatório
+    printf("/////////////////////////////////////////////////////////////////////////////////\n");
+}
