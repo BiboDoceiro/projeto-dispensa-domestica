@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-
+// BY : @flgorgonio
 
 //////
 ////// Funções do Módulo Utilitário
@@ -21,5 +21,12 @@ void delay(int segundos) {
     }
 }
 
-
+///
+/// Limpa a tela; funciona em Linux / MacOS / Windows
+///
+void limpa_tela(void) {
+    if (system("clear") || system("cls")) {
+        // limpa a tela, Linux, Mac e Windows
+    }
+}
 
