@@ -41,3 +41,21 @@ int eh_digito(char c) {
         return 0;
     }
 }
+
+///
+/// Retorna 1 se string recebido corresponde a um número de celular válido 
+/// (apenas dígitos) ou retorna 0 caso contrário
+///
+int validaFone(char* fone) {
+    int tam;
+    tam = strlen(fone);
+    if (tam != 11) {
+        return 0;
+    }
+    for (int i = 0; i < tam; i++) {
+        if (!ehDigito(fone[i])) {
+            return 0;
+        }
+    }
+    return 1;
+}
