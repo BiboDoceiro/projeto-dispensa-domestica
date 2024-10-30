@@ -73,3 +73,17 @@ int ehLetra(char c) {
         return 0;
     }
 }
+
+
+///
+/// Retorna 1 se string recebido for exclusivamente alfabético ou
+/// retorna 0 caso contrário
+///
+int validarNome(char* nome) {
+    for (int i=0; nome[i]!='\0'; i++) {
+        if (!ehLetra(nome[i])) {
+            return 0;
+        }
+    }
+    return 1;
+}
