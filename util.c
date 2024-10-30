@@ -30,3 +30,14 @@ void limpa_tela(void) {
     }
 }
 
+///
+/// Retorna 1 se o caractere recebido for um dígito (entre 0 e 9)
+/// retorna 0 caso contrário
+///
+int eh_digito(char c) {
+    if (c >= '0' && c <= '9') {
+        return 1;
+    } else {
+        return 0;
+    }
+}
