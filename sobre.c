@@ -13,7 +13,7 @@
 
 
 
-void tela_Sobre(void) {
+void tela_sobre(void) {
     system("clear||cls");
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -35,6 +35,26 @@ void tela_Sobre(void) {
     printf("///                     pessoa que quer mais praticidade                    ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+    getchar();
+}
+
+
+void tela_equipe(void) {
+    system("clear||cls");
+    printf("\n");
+    printf("///////////////////////////////////////////////////////////////////////\n");
+    printf("///             Universidade Federal do Rio Grande do Norte         ///\n");
+    printf("///                 Centro de Ensino Superior do Seridó             ///\n");
+    printf("///               Departamento de Computação e Tecnologia           ///\n");
+    printf("///                  Disciplina DCT1106 -- Programação              ///\n");
+    printf("///                  Projeto Sistema de Despensa Doméstica          ///\n");
+    printf("///          Developed by @caiolucas_lm & @lelebiglove              ///\n");
+    printf("///////////////////////////////////////////////////////////////////////\n");
+    printf("///            Caio Lucas Lopes Medeiros                            ///\n");
+    printf("///            Leandro Isaac Correia de Brito                       ///\n");
+    printf("///////////////////////////////////////////////////////////////////////\n");
     printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
     getchar();
