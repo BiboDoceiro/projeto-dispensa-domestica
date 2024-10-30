@@ -74,68 +74,6 @@ void exibir_menu(void) {
     } while (escolha != 0);
 }
 
-void produtos(void) {
-    int escolha;
-    char id_codigo[20];      
-    char nome[100];           
-    char marca[50];           
-    int quant_estoque;        
-    char data_validade[11];   
-    char id_compra[20]; 
-
-    printf("/////////////////////////////////////////////////////////////////////\n");
-    printf("///           = = = = = = = =   Produtos   = = = = = = =             ///\n");
-    printf("/////////////////////////////////////////////////////////////////////\n");
-
-    printf("#### Selecione uma das opções: \n");
-    scanf("%d", &escolha);
-    getchar();  
-
-    switch (escolha) {
-        case 1:
-            printf("Digite o ID-código-de-barra: ");
-            fgets(id_codigo, 20, stdin);
-            id_codigo[strcspn(id_codigo, "\n")] = '\0';  
-
-            printf("Digite o Nome: ");
-            fgets(nome, 100, stdin);
-            nome[strcspn(nome, "\n")] = '\0';  
-
-            printf("Digite a Marca: ");
-            fgets(marca, 50, stdin);
-            marca[strcspn(marca, "\n")] = '\0';  
-
-            printf("Digite a Quantidade em estoque: ");
-            scanf("%d", &quant_estoque);
-            getchar();  
-
-            printf("Digite a Data de validade (dd/mm/aaaa): ");
-            fgets(data_validade, 11, stdin);
-            data_validade[strcspn(data_validade, "\n")] = '\0';  
-
-            printf("Digite o ID da compra: ");
-            fgets(id_compra, 20, stdin);
-            id_compra[strcspn(id_compra, "\n")] = '\0';  
-
-            printf("\nCadastro de produto realizado com sucesso!\n");
-            printf("ID-código-de-barra: %s\n", id_codigo);
-            printf("Nome: %s\n", nome);
-            printf("Marca: %s\n", marca);
-            printf("Quantidade em estoque: %d\n", quant_estoque);
-            printf("Data de validade: %s\n", data_validade);
-            printf("ID da compra: %s\n", id_compra);
-            break;
-
-        case 2:
-            printf("Saindo do cadastro.\n");
-            break;
-
-        default:
-            printf("Opção inválida! Por favor, tente novamente.\n");
-            break;
-    }
-}
-
 void equipe(void) {
     int escolha;
 
