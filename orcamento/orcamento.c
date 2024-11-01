@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "orçamento.h"
+#include "orcamento.h"
 
 void menu_cadastro_orcamento(void) {
     int escolha;
@@ -35,7 +35,7 @@ void menu_cadastro_orcamento(void) {
                 pesquisar_orcamento();
                 break;
             case 3:
-                editar_orcamento();
+                atualizar_orcamento();
                 break;
             case 4:
                 excluir_orcamento();
@@ -80,7 +80,7 @@ void cadastrar_orcamento()
     getchar();  // Aguarda o usuário pressionar ENTER antes de voltar ao menu
 }
 
-void pesquisar_orçamento()
+void pesquisar_orcamento()
 {
     char id[5];
 
@@ -92,7 +92,7 @@ void pesquisar_orçamento()
     getchar();  // Aguarda o usuário pressionar ENTER antes de voltar ao menu
 }
 
-void atualizar_orçamento() {
+void atualizar_orcamento() {
     char id[5];
     char descricao[200];
     char valor[10];
@@ -113,7 +113,7 @@ void atualizar_orçamento() {
     //  adicionar o código para atualizar o orçamento com os dados recebidos.
 }
 
-void excluir_orçamento()
+void excluir_orcamento()
 {
     char id[5];
     
