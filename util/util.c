@@ -53,7 +53,7 @@ int validaFone(char* fone) {
         return 0;
     }
     for (int i = 0; i < tam; i++) {
-        if (!ehDigito(fone[i])) {
+        if (!eh_digito(fone[i])) {
             return 0;
         }
     }
