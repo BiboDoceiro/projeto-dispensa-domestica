@@ -10,6 +10,7 @@ TARGET = dispensa
 SRC = main.c \
       orcamento/orcamento.c \
       pessoa/pessoa.c \
+      pessoa/ler_pessoa.c \
       produtos/produtos.c \
       relatorios/relatorio.c \
       sobre/sobre.c \
@@ -18,6 +19,7 @@ SRC = main.c \
 # Header files
 HEADERS = orcamento/orcamento.h \
           pessoa/pessoa.h \
+          pessoa/ler_pessoa.h \
           produtos/produtos.h \
           relatorios/relatorio.h \
           sobre/sobre.h \

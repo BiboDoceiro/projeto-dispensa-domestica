@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "pessoa.h"
+#include "ler_pessoa.h"
 
 
 void menu_cadastro_pessoal(void){
@@ -54,7 +55,7 @@ void menu_cadastro_pessoal(void){
     } while (escolha != 0);
 }
 
-void cadastrar_pessoa(void){
+void cadastrar_pessoa(void) {
     char nome[50];
     char idade[5];
     char email[50];
@@ -65,24 +66,20 @@ void cadastrar_pessoa(void){
     printf("///            = = = = = Cadastrar Nova Pessoa = = = = = = = = = = = = =    ///\n");
     printf("///                                                                         ///\n");
     printf("/// Informe os dados da pessoa:                                             ///\n");
-    printf("///            Nome: ");
-    fgets(nome, sizeof(nome), stdin);
-    printf("///            Idade: ");
-    fgets(idade, sizeof(idade), stdin);
-    printf("///            E-mail: ");
-    fgets(email, sizeof(email), stdin);
-    printf("///            Telefone: ");
-    fgets(tel, sizeof(tel), stdin);
-    printf("///            CPF: ");
-    fgets(cpf, sizeof(cpf), stdin);
+
+    ler_nome(nome, sizeof(nome));
+    ler_idade(idade, sizeof(idade));
+    ler_email(email, sizeof(email));
+    ler_telefone(tel, sizeof(tel));
+    ler_cpf(cpf, sizeof(cpf));
 
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("///            Pessoa cadastrado com sucesso!                               ///\n");
-    printf("///            Nome: %s", nome);
-    printf("///            Idade: %s", idade);
-    printf("///            E-mail: %s", email);
-    printf("///            Tel: %s", tel);
-    printf("///            CPF: %s", cpf);
+    printf("///            Pessoa cadastrada com sucesso!                              ///\n");
+    printf("///            Nome: %s\n", nome);
+    printf("///            Idade: %s\n", idade);
+    printf("///            E-mail: %s\n", email);
+    printf("///            Tel: %s\n", tel);
+    printf("///            CPF: %s\n", cpf);
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
     getchar();  // Aguarda o usuário pressionar ENTER antes de voltar ao menu
@@ -94,7 +91,7 @@ void pesquisar_pessoa(void){
     printf("///            = = = = = Pesquisar Pessoa = = = = = = = = = = = = =         ///\n");
     printf("///                                                                         ///\n");
     printf("/// Informe o CPF da pessoa para pesquisa: ");
-    fgets(cpf, sizeof(cpf), stdin);
+    ler_cpf(cpf, sizeof(cpf));
     // Código para pesquisar a pessoa
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n\t\t\t>>> Tecle <ENTER> para continuar...\n");
@@ -107,7 +104,7 @@ void editar_pessoa(void){
     printf("///            = = = = = Editar Pessoa = = = = = = = = = = = = =            ///\n");
     printf("///                                                                         ///\n");
     printf("/// Informe o CPF da pessoa que deseja atualizar: ");
-    fgets(cpf, sizeof(cpf), stdin);
+    ler_cpf(cpf, sizeof(cpf));
     // Código para editar a pessoa
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n\t\t\t>>> Tecle <ENTER> para continuar...\n");
@@ -120,7 +117,7 @@ void excluir_pessoa(void){
     printf("///            = = = = = Excluir Pessoa = = = = = = = = = = = = =           ///\n");
     printf("///                                                                         ///\n");
     printf("/// Informe o CPF da pessoa que deseja excluir: ");
-    fgets(cpf, sizeof(cpf), stdin);
+    ler_cpf(cpf, sizeof(cpf));
     // Código para excluir a pessoa 
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n\t\t\t>>> Tecle <ENTER> para continuar...\n");
