@@ -3,6 +3,13 @@
 #include "pessoa.h"
 #include "ler_pessoa.h"
 
+typedef struct {
+    char nome[50];
+    char idade[5];
+    char email[50];
+    char telefone[17];
+    char cpf[13];
+} Pessoa;
 
 void menu_cadastro_pessoal(void){
     int escolha;
@@ -56,33 +63,29 @@ void menu_cadastro_pessoal(void){
 }
 
 void cadastrar_pessoa(void) {
-    char nome[50];
-    char idade[5];
-    char email[50];
-    char tel[17];
-    char cpf[13];
+    Pessoa pessoa;
 
     printf("\n///////////////////////////////////////////////////////////////////////////////\n");
     printf("///            = = = = = Cadastrar Nova Pessoa = = = = = = = = = = = = =    ///\n");
     printf("///                                                                         ///\n");
     printf("/// Informe os dados da pessoa:                                             ///\n");
 
-    ler_nome(nome, sizeof(nome));
-    ler_idade(idade, sizeof(idade));
-    ler_email(email, sizeof(email));
-    ler_telefone(tel, sizeof(tel));
-    ler_cpf(cpf, sizeof(cpf));
+    ler_nome(pessoa.nome, sizeof(pessoa.nome));
+    ler_idade(pessoa.idade, sizeof(pessoa.idade));
+    ler_email(pessoa.email, sizeof(pessoa.email));
+    ler_telefone(pessoa.telefone, sizeof(pessoa.telefone));
+    ler_cpf(pessoa.cpf, sizeof(pessoa.cpf));
 
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///            Pessoa cadastrada com sucesso!                              ///\n");
-    printf("///            Nome: %s\n", nome);
-    printf("///            Idade: %s\n", idade);
-    printf("///            E-mail: %s\n", email);
-    printf("///            Tel: %s\n", tel);
-    printf("///            CPF: %s\n", cpf);
+    printf("///            Nome: %s\n", pessoa.nome);
+    printf("///            Idade: %s\n", pessoa.idade);
+    printf("///            E-mail: %s\n", pessoa.email);
+    printf("///            Tel: %s\n", pessoa.telefone);
+    printf("///            CPF: %s\n", pessoa.cpf);
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-    getchar();  // Aguarda o usuário pressionar ENTER antes de voltar ao menu
+    getchar(); // Aguarda o usuário pressionar ENTER antes de voltar ao menu
 }
 
 void pesquisar_pessoa(void){
