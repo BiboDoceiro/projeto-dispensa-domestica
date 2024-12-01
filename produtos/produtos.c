@@ -1,71 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "produtos.h"
+#include "ler_produtos.h"
 
-
-// isso tudo estava no main e ira ser modificado na modularizacao de produtos, esta como base apenas
-//void produtos(void) {
-//    int escolha;
-//    char id_codigo[20];      
-//    char nome[100];           
-//    char marca[50];           
-//    int quant_estoque;        
-//    char data_validade[11];   
-//    char id_compra[20]; 
-
-//    printf("/////////////////////////////////////////////////////////////////////\n");
- //   printf("///           = = = = = = = =   Produtos   = = = = = = =             ///\n");
-   // printf("/////////////////////////////////////////////////////////////////////\n");
-
-//    printf("#### Selecione uma das opções: \n");
- //   scanf("%d", &escolha);
-   // getchar();  
-
-   // switch (escolha) {
-     //   case 1:
-       //     printf("Digite o ID-código-de-barra: ");
-         //   fgets(id_codigo, 20, stdin);
-           // id_codigo[strcspn(id_codigo, "\n")] = '\0';  
-
-//            printf("Digite o Nome: ");
-  //          fgets(nome, 100, stdin);
-    //        nome[strcspn(nome, "\n")] = '\0';  
-
-//            printf("Digite a Marca: ");
-  //          fgets(marca, 50, stdin);
-    //        marca[strcspn(marca, "\n")] = '\0';  
-
-      //      printf("Digite a Quantidade em estoque: ");
-        //    scanf("%d", &quant_estoque);
-          //  getchar();  
-
-          //  printf("Digite a Data de validade (dd/mm/aaaa): ");
-         //   fgets(data_validade, 11, stdin);
-           // data_validade[strcspn(data_validade, "\n")] = '\0';  
-
-           // printf("Digite o ID da compra: ");
-            //fgets(id_compra, 20, stdin);
-            //id_compra[strcspn(id_compra, "\n")] = '\0';  
-
-            //printf("\nCadastro de produto realizado com sucesso!\n");
-            //printf("ID-código-de-barra: %s\n", id_codigo);
-            //printf("Nome: %s\n", nome);
-            //printf("Marca: %s\n", marca);
-            //printf("Quantidade em estoque: %d\n", quant_estoque);
-            //printf("Data de validade: %s\n", data_validade);
-            //printf("ID da compra: %s\n", id_compra);
-            //break;
-
-        //case 2:
-          //  printf("Saindo do cadastro.\n");
-           // break;
-
-        //default:
-          //  printf("Opção inválida! Por favor, tente novamente.\n");
-            //break;
-    
-
-
+typedef struct {
+    int id_codigo;
+    char nome[50];
+    char marca[50];
+    int quantidade_estoque;
+    char data_validade[11];
+} Produto;
 
 
 void menu_produto(){
@@ -113,17 +57,71 @@ void menu_produto(){
     } while (escolha != 0);
 }
 
-void cadastrar_produto(){
+void cadastrar_produto(void) {
+    Produto produto;
+
+    printf("\n///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///            = = = = = Cadastrar Novo Produto = = = = = = = = = =         ///\n");
+    printf("///                                                                         ///\n");
+    printf("/// Informe os dados do produto:                                            ///\n");
+
+    ler_nome_produto(produto.nome, sizeof(produto.nome));
+    ler_marca(produto.marca, sizeof(produto.marca));
+    ler_quantidade(&produto.quantidade_estoque);
+
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///            Produto cadastrado com sucesso!                             ///\n");
+    printf("///            Código: %d\n", produto.id_codigo);
+    printf("///            Nome: %s\n", produto.nome);
+    printf("///            Marca: %s\n", produto.marca);
+    printf("///            Estoque: %d\n", produto.quantidade_estoque);
+    printf("///            Validade: %s\n", produto.data_validade);
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+    getchar();
 }
 
-void pesquisar_produto(){
+void pesquisar_produto(void) {
+    int id_codigo;
+    printf("\n///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///            = = = = = Pesquisar Produto = = = = = = = = = = = = =        ///\n");
+    printf("///                                                                         ///\n");
+    printf("/// Informe o Código do produto para pesquisa: ");
+    ler_id_codigo(&id_codigo);
 
+    // adicionar metodo de consulta por arquivo
+
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n\t\t\t>>> Tecle <ENTER> para continuar...\n");
+    getchar();
 }
 
-void atualizar_produto(){
+void atualizar_produto(void) {
+    int id_codigo;
+    printf("\n///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///            = = = = = Atualizar Produto = = = = = = = = = = = =          ///\n");
+    printf("///                                                                         ///\n");
+    printf("/// Informe o Código do produto que deseja atualizar: ");
+    ler_id_codigo(&id_codigo);
 
+        // adicionar metodo de consulta por arquivo
+
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n\t\t\t>>> Tecle <ENTER> para continuar...\n");
+    getchar();
 }
 
-void excluir_produto(){
+void excluir_produto(void) {
+    int id_codigo;
+    printf("\n///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///            = = = = = Excluir Produto = = = = = = = = = = = =            ///\n");
+    printf("///                                                                         ///\n");
+    printf("/// Informe o Código do produto que deseja excluir: ");
+    ler_id_codigo(&id_codigo);
 
+      // adicionar metodo de consulta por arquivo
+
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n\t\t\t>>> Tecle <ENTER> para continuar...\n");
+    getchar();
 }

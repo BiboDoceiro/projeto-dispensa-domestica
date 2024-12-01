@@ -12,6 +12,7 @@ SRC = main.c \
       pessoa/pessoa.c \
       pessoa/ler_pessoa.c \
       produtos/produtos.c \
+      produtos/ler_produtos.c \
       relatorios/relatorio.c \
       sobre/sobre.c \
       util/util.c

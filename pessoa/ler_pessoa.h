@@ -1,4 +1,4 @@
-#ifndef LER_PESSOA_h
+#ifndef LER_PESSOA_H
 #define LER_PESSOA_H
 
 void ler_nome(char *nome, size_t tamanho);
