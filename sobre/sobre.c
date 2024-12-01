@@ -26,7 +26,9 @@ void tela_sobre(void) {
     printf("///               Departamento de Computação e Tecnologia                   ///\n");
     printf("///                  Disciplina DCT1106 -- Programação                      ///\n");
     printf("///            Projeto Sistema de Gestão Para Despensa Domestica            ///\n");
-    printf("///                  Developed by @cailucas_lm & @lelebiglove               ///\n");
+    printf("///                  Developed by @cailucas_lm, @lelebiglove                ///\n");
+    printf("///                                         e                               ///\n");
+    printf("///                                 @kaique_vieira_1                        ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -53,11 +55,39 @@ void tela_equipe(void) {
     printf("///               Departamento de Computação e Tecnologia           ///\n");
     printf("///                  Disciplina DCT1106 -- Programação              ///\n");
     printf("///                  Projeto Sistema de Despensa Doméstica          ///\n");
-    printf("///          Developed by @caiolucas_lm & @lelebiglove              ///\n");
+    printf("///          Developed by @caiolucas_lm, @lelebiglove               ///\n");
+    printf("///                                 &                               ///\n");
+    printf("///                          @kaique_vieira_1                       ///\n");
     printf("///////////////////////////////////////////////////////////////////////\n");
     printf("///            Caio Lucas Lopes Medeiros                            ///\n");
     printf("///            Leandro Isaac Correia de Brito                       ///\n");
+    printf("///            Kaique Vieira Soares                                 ///\n");
     printf("///////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+    getchar();
+
+    tela_ascii();
+}
+
+void tela_ascii(void) {
+    system("clear||cls");
+    printf("\n");
+    printf(" ___________________\n");
+    printf(" | _______________ |\n");
+    printf(" | | G O O D B Y E | |\n");
+    printf(" | | G O O D B Y E | |\n");
+    printf(" | | G O O D B Y E | |\n");
+    printf(" | | G O O D B Y E | |\n");
+    printf(" | | G O O D B Y E | |\n");
+    printf(" |_________________|\n");
+    printf("     _[_______]_\n");
+    printf(" ___[___________]___\n");
+    printf("|         [_____] []|__\n");
+    printf("|         [_____] []|  \\__\n");
+    printf("L___________________J     \\ \\___\\/\n");
+    printf(" ___________________      /\\\n");
+    printf("/###################\\    (__)\n");
     printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
     getchar();

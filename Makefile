@@ -1,3 +1,4 @@
+# Compiler
 CC = gcc
 
 # Compiler flags
@@ -9,6 +10,7 @@ TARGET = dispensa
 # Source files
 SRC = main.c \
       orcamento/orcamento.c \
+      orcamento/ler_orcamento.c \
       pessoa/pessoa.c \
       pessoa/ler_pessoa.c \
       produtos/produtos.c \
@@ -19,9 +21,11 @@ SRC = main.c \
 
 # Header files
 HEADERS = orcamento/orcamento.h \
+          orcamento/ler_orcamento.h \
           pessoa/pessoa.h \
           pessoa/ler_pessoa.h \
           produtos/produtos.h \
+          produtos/ler_produtos.h \
           relatorios/relatorio.h \
           sobre/sobre.h \
           util/util.h

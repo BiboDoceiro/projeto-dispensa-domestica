@@ -1,32 +1,32 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "orcamento.h"
+#include "ler_orcamento.h"
 
-void menu_cadastro_orcamento(void) {
+typedef struct {
+    int id;
+    char descricao[100];
+    char valor[20];
+} Orcamento;
+
+void menu_cadastro_orcamento() {
     int escolha;
     do {
         system("clear||cls");
         printf("\n");
         printf("///////////////////////////////////////////////////////////////////////////////\n");
+        printf("///            = = = = = = = = = Menu Orçamentos = = = = = = = = =          ///\n");
         printf("///                                                                         ///\n");
-        printf("///            ===================================================          ///\n");
-        printf("///            = = = =           Despensa domestica        = = = =          ///\n");
-        printf("///            ===================================================          ///\n");
-        printf("///                                                                         ///\n");
-        printf("///////////////////////////////////////////////////////////////////////////////\n");
-        printf("///                                                                         ///\n");
-        printf("///            = = = = = = = = = Menu Orçamento = = = = = = = = =           ///\n");
-        printf("///                                                                         ///\n");
-        printf("///            1. Cadastrar um novo orçamento                               ///\n");
-        printf("///            2. Pesquisar orçamentos                                      ///\n");
-        printf("///            3. Editar um orçamento                                       ///\n");
-        printf("///            4. Excluir um orçamento                                      ///\n");
+        printf("///            1. Cadastrar um Orçamento                                    ///\n");
+        printf("///            2. Pesquisar Orçamentos                                      ///\n");
+        printf("///            3. Atualizar Orçamentos                                      ///\n");
+        printf("///            4. Excluir um Orçamento                                      ///\n");
         printf("///            0. Voltar ao menu anterior                                   ///\n");
         printf("///                                                                         ///\n");
         printf("///            Escolha a opção desejada: ");
         scanf("%d", &escolha);
         getchar();
-        
         switch (escolha) {
             case 1:
                 cadastrar_orcamento();
@@ -43,84 +43,88 @@ void menu_cadastro_orcamento(void) {
             case 0:
                 break;
             default:
-                printf("\t\t\t>Opção inválida! Tente novamente.\n");
+                printf("Opção inválida! Tente novamente.\n");
                 printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
                 getchar();
+                break;
         }
     } while (escolha != 0);
 }
 
-void cadastrar_orcamento()
-{
-    char descricao[200];
-    char valor[10];
-    char data[12];
-    char id[5];
+void cadastrar_orcamento(void) {
+    Orcamento orcamento;
 
     printf("\n///////////////////////////////////////////////////////////////////////////////\n");
-    printf("///            = = = = = Cadastrar Novo orçamento = = = =                   ///\n");
+    printf("///            = = = = = Cadastrar Novo Orçamento = = = = = = = =          ///\n");
     printf("///                                                                         ///\n");
     printf("/// Informe os dados do orçamento:                                          ///\n");
-    printf("///            Descrição: ");
-    fgets(descricao, sizeof(descricao), stdin);
-    printf("///            Valor: ");
-    fgets(valor, sizeof(valor), stdin);
-    printf("///            Data (dd/mm/aaaa): ");
-    fgets(data, sizeof(data), stdin);
-    printf("///            id: ");
-    fgets(id, sizeof(id), stdin);
+
+    ler_id(&orcamento.id);
+    ler_descricao(orcamento.descricao, sizeof(orcamento.descricao));
+    ler_valor(orcamento.valor, sizeof(orcamento.valor));
 
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///            Orçamento cadastrado com sucesso!                            ///\n");
-    printf("///            Descrição: %s", descricao);
-    printf("///            Valor: %s", valor);
-    printf("///            Data: %s", data);
-    printf("///            Data: %s", id);
+    printf("///            ID: %d\n", orcamento.id);
+    printf("///            Descrição: %s\n", orcamento.descricao);
+    printf("///            Valor: %s\n", orcamento.valor);
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    getchar();  // Aguarda o usuário pressionar ENTER antes de voltar ao menu
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+    getchar();
 }
 
-void pesquisar_orcamento()
-{
-    char id[5];
+void pesquisar_orcamento(void) {
+    int id;
 
-    printf("\n/////////////////////////////////////////////////////////////////////////////\n");
-    printf("///            = = = = = Pesquisar Orçamento = = = =                        ///\n");
-    printf("///                                                                         ///\n");
-    printf("/// Informe o id do orçamento:                                              ///\n");
-    fgets(id, sizeof(id), stdin);
-    getchar();  // Aguarda o usuário pressionar ENTER antes de voltar ao menu
-}
-
-void atualizar_orcamento() {
-    char id[5];
-    char descricao[200];
-    char valor[10];
-    char data[12];
-
-    printf("\n/////////////////////////////////////////////////////////////////////////////\n");
-    printf("///            = = = = = Atualizar Orçamento = = = =                        ///\n");
-    printf("///                                                                         ///\n");
-    printf("/// Informe o id do orçamento:                                              ///\n");
-    fgets(id, sizeof(id), stdin);
-    getchar();  // Aguarda o usuário pressionar Enter
-    printf("/// Informe a descrição do orçamento:                                       ///\n");
-    fgets(descricao, sizeof(descricao), stdin);
-    printf("/// Informe o valor do orçamento:                                           ///\n");
-    fgets(valor, sizeof(valor), stdin);
-    printf("/// Informe a data do orçamento (DD/MM/AAAA):                               ///\n");
-    fgets(data, sizeof(data), stdin);
-    //  adicionar o código para atualizar o orçamento com os dados recebidos.
-}
-
-void excluir_orcamento()
-{
-    char id[5];
-    
     printf("\n///////////////////////////////////////////////////////////////////////////////\n");
-    printf("///            = = = = = Excluir Orçamento = = = =                          ///\n");
+    printf("///            = = = = = Pesquisar Orçamento = = = = = = = = = =           ///\n");
     printf("///                                                                         ///\n");
-    printf("/// Informe o id do orçamento:                                              ///\n");
-    fgets(id, sizeof(id), stdin);
-    getchar();   // Aguarda o usuário pressionar ENTER antes de voltar ao menu
+    printf("/// Informe o ID do orçamento para pesquisa: ");
+    ler_id(&id);
+
+    // Adicione a lógica de busca em arquivos ou base de dados aqui
+
 }
+
+void atualizar_orcamento(void) {
+    int id;
+    char novo_valor[20];
+
+    printf("\n///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///            = = = = = Atualizar Orçamento = = = = = = = = =             ///\n");
+    printf("///                                                                         ///\n");
+    printf("/// Informe o ID do orçamento que deseja atualizar: ");
+    ler_id(&id);
+
+    ler_valor(novo_valor, sizeof(novo_valor));
+
+    // Adicione a lógica de atualização em arquivos ou base de dados aqui
+
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///            Orçamento atualizado com sucesso!                            ///\n");
+    printf("///            ID: %d\n", id);
+    printf("///            Novo Valor: %s\n", novo_valor);
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+    getchar();
+}
+
+void excluir_orcamento(void) {
+    int id;
+
+    printf("\n///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///            = = = = = Excluir Orçamento = = = = = = = = = =             ///\n");
+    printf("///                                                                         ///\n");
+    printf("/// Informe o ID do orçamento que deseja excluir: ");
+    ler_id(&id);
+
+    // Adicione a lógica de exclusão em arquivos ou base de dados aqui
+
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///            Orçamento excluído com sucesso!                              ///\n");
+    printf("///            ID: %d\n", id);
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+    getchar();
+}
+
