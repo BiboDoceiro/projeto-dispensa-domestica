@@ -16,3 +16,13 @@ Verifique se o sistema compilou certinho!!.
  ./dispensa
 ```
 Pronto, só utilizar. 😁
+
+### Como apagar arquivos compilado:
+-  Use o Makefile para apagar os arquivos compilados  do programa. 
+-  exemplo: Linux
+```sh
+ make clean
+```
+
+Pronto, arquivos apagados. 😁
+
