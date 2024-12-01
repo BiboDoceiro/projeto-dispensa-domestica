@@ -17,7 +17,7 @@ Verifique se o sistema compilou certinho!!.
 ```
 Pronto, só utilizar. 😁
 
-### Como apagar arquivos compilado:
+### Como apagar arquivos compilados:
 -  Use o Makefile para apagar os arquivos compilados  do programa. 
 -  exemplo: Linux
 ```sh
