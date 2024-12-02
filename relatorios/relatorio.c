@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "relatorios.h"
+#include "relatorio.h"
 
 
 void menu_relatorios(void){

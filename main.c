@@ -13,10 +13,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include "pessoa.h"  
-#include "orcamento.h"
-#include "relatorio.h"
-#include "produtos.h"
+#include "./pessoa/pessoa.h"  
+#include "./orcamento/orcamento.h"
+#include "./relatorios/relatorio.h"
+#include "./produtos/produtos.h"
 
 
 //////
@@ -39,7 +39,7 @@ int main(void) {
         switch(escolha) {
             case '1':   menu_cadastro_pessoal();
                         break;
-            case '2':   menu_produtos();
+            case '2':   menu_produto();
                         break;
             case '3':   menu_cadastro_orcamento();
                         break;  
