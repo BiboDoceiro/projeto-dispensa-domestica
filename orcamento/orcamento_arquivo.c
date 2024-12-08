@@ -41,7 +41,7 @@ void carregar_orcamentos_arquivo(Orcamento **orcamentos, int *qtd_orcamentos) {
 }
 
 
-vvoid atualizar_orcamento_arquivo(int id_codigo) {
+void atualizar_orcamento_arquivo(int id_codigo) {
     Orcamento *orcamentos;
     int qtd_orcamentos;
 
