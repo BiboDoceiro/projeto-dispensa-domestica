@@ -63,6 +63,9 @@ void cadastrar_orcamento(void) {
     ler_descricao(orcamento.descricao, sizeof(orcamento.descricao));
     ler_valor(orcamento.valor, sizeof(orcamento.valor));
 
+    orcamento.id = obter_proximo_id_orcamento();
+    salvar_orcamento_arquivo(&orcamento);
+
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///            Orçamento cadastrado com sucesso!                            ///\n");
     printf("///            ID: %d\n", orcamento.id);
@@ -82,6 +85,8 @@ void pesquisar_orcamento(void) {
     printf("/// Informe o ID do orçamento para pesquisa: ");
     ler_id(&id);
 
+    Orcamento *orcamento = buscar_orcamento_arquivo(id);
+
     // Adicione a lógica de busca em arquivos ou base de dados aqui
 
 }
@@ -97,6 +102,8 @@ void atualizar_orcamento(void) {
     ler_id(&id);
 
     ler_valor(novo_valor, sizeof(novo_valor));
+
+    atualizar_orcamento_arquivo(id);
 
     // Adicione a lógica de atualização em arquivos ou base de dados aqui
 
@@ -117,6 +124,8 @@ void excluir_orcamento(void) {
     printf("///                                                                         ///\n");
     printf("/// Informe o ID do orçamento que deseja excluir: ");
     ler_id(&id);
+
+    excluir_orcamento_arquivo(id);
 
     // Adicione a lógica de exclusão em arquivos ou base de dados aqui
 
