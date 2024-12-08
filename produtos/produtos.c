@@ -2,15 +2,7 @@
 #include <stdlib.h>
 #include "produtos.h"
 #include "ler_produtos.h"
-
-typedef struct {
-    int id_codigo;
-    char nome[50];
-    char marca[50];
-    int quantidade_estoque;
-    char data_validade[11];
-} Produto;
-
+#include "produto_arquivo.h"
 
 void menu_produto(){
     int escolha;
@@ -69,6 +61,9 @@ void cadastrar_produto(void) {
     ler_marca(produto.marca, sizeof(produto.marca));
     ler_quantidade(&produto.quantidade_estoque);
 
+    produto.id_codigo = obter_proximo_id_produto();
+    salvar_produto_arquivo(&produto);
+
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///            Produto cadastrado com sucesso!                             ///\n");
     printf("///            Código: %d\n", produto.id_codigo);
@@ -89,7 +84,22 @@ void pesquisar_produto(void) {
     printf("/// Informe o Código do produto para pesquisa: ");
     ler_id_codigo(&id_codigo);
 
-    // adicionar metodo de consulta por arquivo
+    Produto *produto = buscar_produto_arquivo(id_codigo);
+
+    if (produto != NULL) {
+        printf("///////////////////////////////////////////////////////////////////////////////\n");
+        printf("///            Produto encontrado:                                          ///\n");
+        printf("///            Código: %d\n", produto->id_codigo);
+        printf("///            Nome: %s\n", produto->nome);
+        printf("///            Marca: %s\n", produto->marca);
+        printf("///            Estoque: %d\n", produto->quantidade_estoque);
+        printf("///            Validade: %s\n", produto->data_validade);
+        printf("///////////////////////////////////////////////////////////////////////////////\n");
+    } else {
+        printf("///////////////////////////////////////////////////////////////////////////////\n");
+        printf("///            Produto não encontrado!                                      ///\n");
+        printf("///////////////////////////////////////////////////////////////////////////////\n");
+    }
 
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n\t\t\t>>> Tecle <ENTER> para continuar...\n");
@@ -104,7 +114,7 @@ void atualizar_produto(void) {
     printf("/// Informe o Código do produto que deseja atualizar: ");
     ler_id_codigo(&id_codigo);
 
-        // adicionar metodo de consulta por arquivo
+    atualizar_produto_arquivo(id_codigo);
 
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n\t\t\t>>> Tecle <ENTER> para continuar...\n");
@@ -119,7 +129,7 @@ void excluir_produto(void) {
     printf("/// Informe o Código do produto que deseja excluir: ");
     ler_id_codigo(&id_codigo);
 
-      // adicionar metodo de consulta por arquivo
+    excluir_produto_arquivo(id_codigo);
 
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n\t\t\t>>> Tecle <ENTER> para continuar...\n");

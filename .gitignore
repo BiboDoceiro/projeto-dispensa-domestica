@@ -2,6 +2,7 @@
 *.d
 *.js
 *.json
+*.dat
 
 # Object files
 *.o

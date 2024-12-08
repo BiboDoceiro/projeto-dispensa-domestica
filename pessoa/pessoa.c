@@ -1,15 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "pessoa.h"
-#include "ler_pessoa.h"
-
-typedef struct {
-    char nome[50];
-    char idade[5];
-    char email[50];
-    char telefone[17];
-    char cpf[13];
-} Pessoa;
+#include "pessoa.h"        
+#include "ler_pessoa.h"       
+#include "pessoa_arquivo.h"
 
 void menu_cadastro_pessoal(void){
     int escolha;
@@ -76,6 +69,8 @@ void cadastrar_pessoa(void) {
     ler_telefone(pessoa.telefone, sizeof(pessoa.telefone));
     ler_cpf(pessoa.cpf, sizeof(pessoa.cpf));
 
+    salvar_pessoa_arquivo(&pessoa);
+
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///            Pessoa cadastrada com sucesso!                              ///\n");
     printf("///            Nome: %s\n", pessoa.nome);
@@ -95,10 +90,10 @@ void pesquisar_pessoa(void){
     printf("///                                                                         ///\n");
     printf("/// Informe o CPF da pessoa para pesquisa: ");
     ler_cpf(cpf, sizeof(cpf));
-    // Código para pesquisar a pessoa
+    buscar_pessoa_por_cpf(cpf);
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n\t\t\t>>> Tecle <ENTER> para continuar...\n");
-    getchar();  // Aguarda o usuário pressionar ENTER antes de voltar ao menu
+    getchar();  
 }
 
 void editar_pessoa(void){
@@ -108,10 +103,11 @@ void editar_pessoa(void){
     printf("///                                                                         ///\n");
     printf("/// Informe o CPF da pessoa que deseja atualizar: ");
     ler_cpf(cpf, sizeof(cpf));
-    // Código para editar a pessoa
+    atualizar_pessoa(cpf);
+
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n\t\t\t>>> Tecle <ENTER> para continuar...\n");
-    getchar();  // Aguarda o usuário pressionar ENTER antes de voltar ao menu
+    getchar(); 
 }
 
 void excluir_pessoa(void){
@@ -121,8 +117,8 @@ void excluir_pessoa(void){
     printf("///                                                                         ///\n");
     printf("/// Informe o CPF da pessoa que deseja excluir: ");
     ler_cpf(cpf, sizeof(cpf));
-    // Código para excluir a pessoa 
+    excluir_pessoa_arquivo(cpf);
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n\t\t\t>>> Tecle <ENTER> para continuar...\n");
-    getchar();  // Aguarda o usuário pressionar ENTER antes de voltar ao menu
+    getchar();  
 }
