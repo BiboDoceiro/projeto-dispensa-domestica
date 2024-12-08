@@ -10,7 +10,7 @@ void ler_id_codigo(int *id_codigo) {
         printf("Informe o código do produto (número inteiro): ");
         if (scanf("%d", id_codigo) != 1 || *id_codigo <= 0) {
             printf("Código inválido! Por favor, insira um número positivo.\n");
-            while (getchar() != '\n'); // Limpa o buffer de entrada
+            while (getchar() != '\n');
         } else {
             break;
         }
@@ -22,12 +22,13 @@ void ler_nome_produto(char *nome, size_t tamanho) {
     do {
         printf("///            Nome: ");
         fgets(nome, tamanho, stdin);
-        remove_newline(nome);
+        remove_newline(nome); 
         if (!validarNome(nome)) {
             printf("///            Nome do produto é inválido! Deve ter pelo menos 3 caracteres.\n");
         }
     } while (!validarNome(nome));
 }
+
 
 void ler_marca(char *marca, size_t tamanho) {
     do {
