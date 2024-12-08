@@ -41,7 +41,7 @@ void carregar_orcamentos_arquivo(Orcamento **orcamentos, int *qtd_orcamentos) {
 }
 
 
-void atualizar_orcamento_arquivo(int id_codigo) {
+void atualizar_orcamento_arquivo(int id) {
     Orcamento *orcamentos;
     int qtd_orcamentos;
 
@@ -54,7 +54,7 @@ void atualizar_orcamento_arquivo(int id_codigo) {
 
     int encontrado = 0;
     for (int i = 0; i < qtd_orcamentos; i++) {
-        if (orcamentos[i].id_codigo == id_codigo) {
+        if (orcamentos[i].id == id) {
             encontrado = 1;
             printf("Informe os novos dados para o orçamento:\n");
             printf("Descrição: ");
@@ -87,7 +87,7 @@ void atualizar_orcamento_arquivo(int id_codigo) {
 }
 
 
-void excluir_orcamento_arquivo(int id_codigo) {
+void excluir_orcamento_arquivo(int id) {
     Orcamento *orcamentos;
     int qtd_orcamentos;
 
@@ -106,7 +106,7 @@ void excluir_orcamento_arquivo(int id_codigo) {
     }
 
     for (int i = 0; i < qtd_orcamentos; i++) {
-        if (orcamentos[i].id_codigo != id_codigo) {
+        if (orcamentos[i].id != id) {
             fwrite(&orcamentos[i], sizeof(Orcamento), 1, arquivo);
         }
     }
@@ -128,8 +128,8 @@ int obter_proximo_id_orcamento(void) {
     if (orcamentos != NULL && qtd_orcamentos > 0) {
         int maior_id = 0;
         for (int i = 0; i < qtd_orcamentos; i++) {
-            if (orcamentos[i].id_codigo > maior_id) {
-                maior_id = orcamentos[i].id_codigo;
+            if (orcamentos[i].id > maior_id) {
+                maior_id = orcamentos[i].id;
             }
         }
         proximo_id = maior_id + 1;
@@ -141,7 +141,7 @@ int obter_proximo_id_orcamento(void) {
 
 
 
-Orcamento* buscar_orcamento_arquivo(int id_codigo) {
+Orcamento* buscar_orcamento_arquivo(int id) {
     Orcamento *orcamentos;
     int qtd_orcamentos;
 
@@ -153,7 +153,7 @@ Orcamento* buscar_orcamento_arquivo(int id_codigo) {
     }
 
     for (int i = 0; i < qtd_orcamentos; i++) {
-        if (orcamentos[i].id_codigo == id_codigo) {
+        if (orcamentos[i].id == id) {
             Orcamento *orcamento_encontrado = malloc(sizeof(Orcamento));
             *orcamento_encontrado = orcamentos[i];
             free(orcamentos);
