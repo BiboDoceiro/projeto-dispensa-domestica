@@ -3,12 +3,7 @@
 #include <string.h>
 #include "orcamento.h"
 #include "ler_orcamento.h"
-
-typedef struct {
-    int id;
-    char descricao[100];
-    char valor[20];
-} Orcamento;
+#include "orcamento_arquivo.h"
 
 void menu_cadastro_orcamento() {
     int escolha;
@@ -59,7 +54,6 @@ void cadastrar_orcamento(void) {
     printf("///                                                                         ///\n");
     printf("/// Informe os dados do orçamento:                                          ///\n");
 
-    ler_id(&orcamento.id);
     ler_descricao(orcamento.descricao, sizeof(orcamento.descricao));
     ler_valor(orcamento.valor, sizeof(orcamento.valor));
 
@@ -75,7 +69,6 @@ void cadastrar_orcamento(void) {
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
     getchar();
 }
-
 void pesquisar_orcamento(void) {
     int id;
 
@@ -86,10 +79,23 @@ void pesquisar_orcamento(void) {
     ler_id(&id);
 
     Orcamento *orcamento = buscar_orcamento_arquivo(id);
-
-    // Adicione a lógica de busca em arquivos ou base de dados aqui
-
+    if (orcamento != NULL) {
+        printf("///////////////////////////////////////////////////////////////////////////////\n");
+        printf("///            Orçamento encontrado!                                        ///\n");
+        printf("///            ID: %d\n", orcamento->id);
+        printf("///            Descrição: %s\n", orcamento->descricao);
+        printf("///            Valor: %s\n", orcamento->valor);
+        printf("///////////////////////////////////////////////////////////////////////////////\n");
+        free(orcamento); // Libere a memória alocada pela função buscar_orcamento_arquivo
+    } else {
+        printf("///////////////////////////////////////////////////////////////////////////////\n");
+        printf("///            Orçamento não encontrado!                                    ///\n");
+        printf("///////////////////////////////////////////////////////////////////////////////\n");
+    }
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+    getchar();
 }
+
 
 void atualizar_orcamento(void) {
     int id;

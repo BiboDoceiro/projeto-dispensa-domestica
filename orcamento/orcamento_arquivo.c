@@ -5,10 +5,10 @@
 #include "ler_orcamento.h"
 #include "orcamento_arquivo.h"
 
-#define ARQUIVO "orcamento.dat"
+#define ARQUIVO_ORCAMENTO "orcamento.dat"
 
 void salvar_orcamento_arquivo(const Orcamento *orcamento) {
-    FILE *arquivo = fopen(ARQUIVO, "ab");
+    FILE *arquivo = fopen(ARQUIVO_ORCAMENTO, "ab");
     if (!arquivo) {
         perror("Erro ao abrir o arquivo para escrita");
         return;
@@ -16,7 +16,6 @@ void salvar_orcamento_arquivo(const Orcamento *orcamento) {
     fwrite(orcamento, sizeof(Orcamento), 1, arquivo); 
     fclose(arquivo);
 }
-
 
 void carregar_orcamentos_arquivo(Orcamento **orcamentos, int *qtd_orcamentos) {
     FILE *arquivo = fopen(ARQUIVO_ORCAMENTO, "rb");
@@ -40,7 +39,6 @@ void carregar_orcamentos_arquivo(Orcamento **orcamentos, int *qtd_orcamentos) {
     fclose(arquivo);
 }
 
-
 void atualizar_orcamento_arquivo(int id) {
     Orcamento *orcamentos;
     int qtd_orcamentos;
@@ -60,9 +58,7 @@ void atualizar_orcamento_arquivo(int id) {
             printf("Descrição: ");
             scanf(" %[^\n]", orcamentos[i].descricao);
             printf("Valor: ");
-            scanf("%lf", &orcamentos[i].valor);
-            printf("Status (Aberto/Fechado): ");
-            scanf(" %[^\n]", orcamentos[i].status);
+            scanf("%s", orcamentos[i].valor); // Corrigido: removido o operador &
             break;
         }
     }
@@ -85,6 +81,7 @@ void atualizar_orcamento_arquivo(int id) {
 
     free(orcamentos);
 }
+
 
 
 void excluir_orcamento_arquivo(int id) {
