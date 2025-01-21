@@ -59,6 +59,7 @@ void atualizar_produto_arquivo(int id_codigo) {
             ler_nome_produto(produtos[i].nome, sizeof(produtos[i].nome));
             ler_marca(produtos[i].marca, sizeof(produtos[i].marca));
             ler_quantidade(&produtos[i].quantidade_estoque);
+            ler_valor_produto(produtos[i].valor, sizeof(produtos[i].valor));
             break;
         }
     }

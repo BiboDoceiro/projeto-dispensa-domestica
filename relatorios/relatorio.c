@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "relatorio.h"
+#include "relatorio_pessoa.h"
 #include "relatorio_orcamento.h"
+#include "relatorio_produto.h"
 
 void menu_relatorios(void){
      int escolha;
@@ -12,6 +14,7 @@ void menu_relatorios(void){
         printf("///                                                                         ///\n");
         printf("///            1. Relatórios de Pessoas                                     ///\n");
         printf("///            2. Relatórios de Orcamentos                                  ///\n");
+        printf("///            3. Relatórios de Produtos                                    ///\n");
         printf("///            0. Retornar ao menu principal                                ///\n");
         printf("///                                                                         ///\n");
         printf("///            Escolha a opção desejada: ");
@@ -24,6 +27,9 @@ void menu_relatorios(void){
             break;
         case 2:
             relatorios_orcamento();
+            break;
+        case 3:
+            relatorios_produto();
             break;
         case 0:
         
@@ -40,17 +46,25 @@ void menu_relatorios(void){
 }
 void relatorios_pessoa(void)
 {
+    system("clear||cls");
     printf("\n///////////////////////////////////////////////////////////////////////////////\n");
-    printf("///            = = = = = Relatório de Pessoas = = = =                       ///\n");
-    
-
+    printf("///            = = = = = = = Relatório de Pessoas = = = = = = = = = = = =     ///\n");
+    gerarRelatorioPessoas();
     printf("/////////////////////////////////////////////////////////////////////////////////\n");
 }
 
 void relatorios_orcamento(void) {
     system("clear||cls");
     printf("\n///////////////////////////////////////////////////////////////////////////////\n");
-    printf("///            = = = = = Relatório de Orcamentos = = = = = = = = = = = = =    ///\n");
-    gerarRelatorio();
+    printf("///            = = = = = = Relatório de Orcamentos = = = = = = = = = = = =    ///\n");
+    gerarRelatorioOrcamentos();
+    printf("/////////////////////////////////////////////////////////////////////////////////\n");
+}
+
+void relatorios_produto(void) {
+    system("clear||cls");
+    printf("\n///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///            = = = = = = Relatório de Produtos = = = = = = = = = = = = =    ///\n");
+    gerarRelatorioProdutos();
     printf("/////////////////////////////////////////////////////////////////////////////////\n");
 }
