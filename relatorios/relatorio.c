@@ -1,12 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "relatorio.h"
-
+#include "relatorio_orcamento.h"
 
 void menu_relatorios(void){
      int escolha;
      do{
-        system("clear||cls");
         printf("\n");
         printf("///////////////////////////////////////////////////////////////////////////////\n");
         printf("///            = = = = = = = = = Menu Relatórios = = = = = = = = =          ///\n");
@@ -43,14 +42,15 @@ void relatorios_pessoa(void)
 {
     printf("\n///////////////////////////////////////////////////////////////////////////////\n");
     printf("///            = = = = = Relatório de Pessoas = = = =                       ///\n");
-    // Implementar a geração do relatório
+    
+
     printf("/////////////////////////////////////////////////////////////////////////////////\n");
 }
 
-void relatorios_orcamento(void)
-{
+void relatorios_orcamento(void) {
+    system("clear||cls");
     printf("\n///////////////////////////////////////////////////////////////////////////////\n");
     printf("///            = = = = = Relatório de Orcamentos = = = = = = = = = = = = =    ///\n");
-    // Implementar a geração do relatório
+    gerarRelatorio();
     printf("/////////////////////////////////////////////////////////////////////////////////\n");
 }
