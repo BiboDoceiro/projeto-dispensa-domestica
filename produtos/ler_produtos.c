@@ -57,38 +57,23 @@ void ler_quantidade(int *quantidade) {
     } while (!valor_valido);
 }
 
-void ler_validade(char *data, size_t tamanho) {
-    int dia, mes, ano;
+void ler_valor_produto(char *valor, size_t tamanho) {
+    double val;
     do {
-        printf("///            Data de validade (DD/MM/AAAA): ");
-        fgets(data, tamanho, stdin);
-        remove_newline(data);
+        printf("///            Valor do produto (ex: 123.45): R$ ");
+        fgets(valor, tamanho, stdin);
+        remove_newline(valor);
 
-        // Tentar interpretar a data
-        if (sscanf(data, "%d/%d/%d", &dia, &mes, &ano) != 3) {
-            printf("///            Formato inválido! Certifique-se de usar o formato DD/MM/AAAA.\n");
+        // Tentar interpretar o valor
+        if (sscanf(valor, "%lf", &val) != 1) {
+            printf("///            Formato inválido! Certifique-se de inserir um valor numérico válido.");
             continue;
         }
 
-        // Verificar limites básicos
-        if (dia < 1 || dia > 31 || mes < 1 || mes > 12 || ano < 2023) {
-            printf("///            Data inválida! Certifique-se de inserir uma data futura válida.\n");
+        // Verificar se o valor é positivo
+        if (val < 0) {
+            printf("///            Valor inválido! O valor deve ser maior ou igual a zero.");
             continue;
-        }
-
-        // Validar o dia em relação ao mês
-        if ((mes == 4 || mes == 6 || mes == 9 || mes == 11) && dia > 30) {
-            printf("///            O mês informado tem no máximo 30 dias.\n");
-            continue;
-        }
-
-        // Validar fevereiro e anos bissextos
-        if (mes == 2) {
-            int is_leap_year = (ano % 4 == 0 && ano % 100 != 0) || (ano % 400 == 0);
-            if (dia > 29 || (dia == 29 && !is_leap_year)) {
-                printf("///            Fevereiro tem no máximo %d dias nesse ano.\n", is_leap_year ? 29 : 28);
-                continue;
-            }
         }
 
         // Tudo está válido

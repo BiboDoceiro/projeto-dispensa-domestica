@@ -6,7 +6,7 @@
 
 #define ORCAMENTO_ARQUIVO "orcamento.dat"
 
-void inicializarArquivo() {
+void inicializarArquivoOrcamentos() {
     FILE *arquivo = fopen(ORCAMENTO_ARQUIVO, "ab");
     if (arquivo == NULL) {
         perror("Erro ao criar o arquivo");
@@ -15,7 +15,7 @@ void inicializarArquivo() {
     fclose(arquivo);
 }
 
-void gerarRelatorio() {
+void gerarRelatorioOrcamentos() {
     FILE *arquivo = fopen(ORCAMENTO_ARQUIVO, "rb");
     if (arquivo == NULL) {
         perror("Erro ao abrir o arquivo para leitura");

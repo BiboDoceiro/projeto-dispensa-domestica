@@ -20,6 +20,8 @@ SRC = main.c \
       produtos/produto_arquivo.c \
       relatorios/relatorio.c \
       relatorios/relatorio_orcamento.c \
+      relatorios/relatorio_pessoa.c \
+      relatorios/relatorio_produto.c \
       sobre/sobre.c \
       util/util.c
 
@@ -35,6 +37,8 @@ HEADERS = orcamento/orcamento.h \
           produtos/produto_arquivo.h \
           relatorios/relatorio.h \
           relatorios/relatorio_orcamento.h \
+          relatorios/relatorio_pessoa.h \
+          relatorios/relatorio_produto.h \
           sobre/sobre.h \
           util/util.h
 

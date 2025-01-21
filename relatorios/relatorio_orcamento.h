@@ -4,8 +4,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void inicializarArquivo();
-void gerarRelatorio();
+void inicializarArquivoOrcamentos();
+void gerarRelatorioOrcamentos();
 double calcularTotal();
 
 #endif

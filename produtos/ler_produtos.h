@@ -9,6 +9,6 @@ void ler_marca(char *marca, size_t tamanho);
 
 void ler_quantidade(int *quantidade);
 
-void ler_validade(char *data, size_t tamanho);
+void ler_valor_produto(char *valor, size_t tamanho);
 
 #endif
