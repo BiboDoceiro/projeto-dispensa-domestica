@@ -11,7 +11,7 @@ TARGET = dispensa
 SRC = main.c \
       orcamento/orcamento.c \
       orcamento/ler_orcamento.c \
-      orcamento/orcamento_arquivo.c\
+      orcamento/orcamento_arquivo.c \
       pessoa/pessoa.c \
       pessoa/ler_pessoa.c \
       pessoa/pessoa_arquivo.c \
@@ -19,13 +19,14 @@ SRC = main.c \
       produtos/ler_produtos.c \
       produtos/produto_arquivo.c \
       relatorios/relatorio.c \
+      relatorios/relatorio_orcamento.c \
       sobre/sobre.c \
       util/util.c
 
 # Header files
 HEADERS = orcamento/orcamento.h \
           orcamento/ler_orcamento.h \
-          orcamento/orcamento_arquivo.h\
+          orcamento/orcamento_arquivo.h \
           pessoa/pessoa.h \
           pessoa/ler_pessoa.h \
           pessoa/pessoa_arquivo.h \
@@ -33,6 +34,7 @@ HEADERS = orcamento/orcamento.h \
           produtos/ler_produtos.h \
           produtos/produto_arquivo.h \
           relatorios/relatorio.h \
+          relatorios/relatorio_orcamento.h \
           sobre/sobre.h \
           util/util.h
 
