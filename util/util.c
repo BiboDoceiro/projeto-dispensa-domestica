@@ -62,12 +62,12 @@ int ehLetra(char c) {
 /// retorna 0 caso contrário
 ///
 int validarNome(char* nome) {
-    for (int i=0; nome[i]!='\0'; i++) {
-        if (!ehLetra(nome[i])) {
-            return 0;
+    for (int i = 0; nome[i] != '\0'; i++) {
+        if (!ehLetra(nome[i]) && nome[i] != ' ') {
+            return 0; 
         }
     }
-    return 1;
+    return 1; 
 }
 
 void remove_newline(char *str) {

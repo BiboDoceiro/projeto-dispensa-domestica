@@ -148,17 +148,21 @@ Produto* buscar_produto_arquivo(int id_codigo) {
         return NULL;
     }
 
-
     for (int i = 0; i < qtd_produtos; i++) {
         if (produtos[i].id_codigo == id_codigo) {
-            Produto *produto_encontrado = &produtos[i];
-            free(produtos);
+            Produto *produto_encontrado = malloc(sizeof(Produto));
+            if (!produto_encontrado) {
+                perror("Erro ao alocar memória para o produto encontrado");
+                free(produtos);
+                return NULL;
+            }
+            *produto_encontrado = produtos[i]; // Copia os dados do produto encontrado
+            free(produtos); // Libera a memória do array
             return produto_encontrado;
         }
     }
 
-
-    free(produtos);
-    return NULL;
+    free(produtos); 
+    return NULL; // Produto não encontrado
 }
 

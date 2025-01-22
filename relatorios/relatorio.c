@@ -3,7 +3,12 @@
 #include "relatorio.h"
 #include "relatorio_pessoa.h"
 #include "relatorio_orcamento.h"
+<<<<<<< Updated upstream
 #include "relatorio_produto.h"
+=======
+#include "relatorio_pessoa.h"
+
+>>>>>>> Stashed changes
 
 void menu_relatorios(void){
      int escolha;
@@ -49,8 +54,17 @@ void relatorios_pessoa(void)
 {
     system("clear||cls");
     printf("\n///////////////////////////////////////////////////////////////////////////////\n");
+<<<<<<< Updated upstream
     printf("///            = = = = = = = Relatório de Pessoas = = = = = = = = = = = =     ///\n");
+<<<<<<< Updated upstream
     relatorio_pessoa();
+=======
+    gerarRelatorioPessoas();
+=======
+    printf("///            = = = = = Relatório de Pessoas = = = =                       ///\n");
+    relatorio_pessoa();
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
     printf("/////////////////////////////////////////////////////////////////////////////////\n");
 }
 
@@ -58,7 +72,7 @@ void relatorios_orcamento(void) {
     system("clear||cls");
     printf("\n///////////////////////////////////////////////////////////////////////////////\n");
     printf("///            = = = = = = Relatório de Orcamentos = = = = = = = = = = = =    ///\n");
-    gerarRelatorioOrcamentos();
+    menu_relatorio_orcamento();
     printf("/////////////////////////////////////////////////////////////////////////////////\n");
 }
 
