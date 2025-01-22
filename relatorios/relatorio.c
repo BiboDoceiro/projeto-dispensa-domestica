@@ -8,6 +8,7 @@
 void menu_relatorios(void){
      int escolha;
      do{
+        system("clear||cls");
         printf("\n");
         printf("///////////////////////////////////////////////////////////////////////////////\n");
         printf("///            = = = = = = = = = Menu Relatórios = = = = = = = = =          ///\n");
@@ -49,7 +50,7 @@ void relatorios_pessoa(void)
     system("clear||cls");
     printf("\n///////////////////////////////////////////////////////////////////////////////\n");
     printf("///            = = = = = = = Relatório de Pessoas = = = = = = = = = = = =     ///\n");
-    gerarRelatorioPessoas();
+    gerarRelatorioPessoa();
     printf("/////////////////////////////////////////////////////////////////////////////////\n");
 }
 
