@@ -3,16 +3,11 @@
 #include "relatorio.h"
 #include "relatorio_pessoa.h"
 #include "relatorio_orcamento.h"
-<<<<<<< Updated upstream
 #include "relatorio_produto.h"
-=======
-#include "relatorio_pessoa.h"
 
->>>>>>> Stashed changes
-
-void menu_relatorios(void){
-     int escolha;
-     do{
+void menu_relatorios(void) {
+    int escolha;
+    do {
         system("clear||cls");
         printf("\n");
         printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -26,52 +21,41 @@ void menu_relatorios(void){
         printf("///            Escolha a opção desejada: ");
         scanf("%d", &escolha);
         getchar();
-        switch (escolha)
-        {
-        case 1:
-            relatorios_pessoa();
-            break;
-        case 2:
-            relatorios_orcamento();
-            break;
-        case 3:
-            relatorios_produto();
-            break;
-        case 0:
-        
-            break;
-        default:
-            printf("\t\t\t>Opção inválida! Tente novamente.\n");
-            printf("///                                                                         ///\n");
-            printf("///////////////////////////////////////////////////////////////////////////////\n");
-            printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-            break;
+        switch (escolha) {
+            case 1:
+                relatorios_pessoa();
+                break;
+            case 2:
+                relatorios_orcamento();
+                break;
+            case 3:
+                relatorios_produto();
+                break;
+            case 0:
+                break;
+            default:
+                printf("\t\t\t>Opção inválida! Tente novamente.\n");
+                printf("///                                                                         ///\n");
+                printf("///////////////////////////////////////////////////////////////////////////////\n");
+                printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+                getchar();
+                break;
         }
-        
     } while (escolha != 0);
 }
-void relatorios_pessoa(void)
-{
+
+void relatorios_pessoa(void) {
     system("clear||cls");
     printf("\n///////////////////////////////////////////////////////////////////////////////\n");
-<<<<<<< Updated upstream
-    printf("///            = = = = = = = Relatório de Pessoas = = = = = = = = = = = =     ///\n");
-<<<<<<< Updated upstream
-    relatorio_pessoa();
-=======
-    gerarRelatorioPessoas();
-=======
     printf("///            = = = = = Relatório de Pessoas = = = =                       ///\n");
     relatorio_pessoa();
->>>>>>> Stashed changes
->>>>>>> Stashed changes
     printf("/////////////////////////////////////////////////////////////////////////////////\n");
 }
 
 void relatorios_orcamento(void) {
     system("clear||cls");
     printf("\n///////////////////////////////////////////////////////////////////////////////\n");
-    printf("///            = = = = = = Relatório de Orcamentos = = = = = = = = = = = =    ///\n");
+    printf("///            = = = = = Relatório de Orcamentos = = = =                    ///\n");
     menu_relatorio_orcamento();
     printf("/////////////////////////////////////////////////////////////////////////////////\n");
 }
@@ -79,7 +63,7 @@ void relatorios_orcamento(void) {
 void relatorios_produto(void) {
     system("clear||cls");
     printf("\n///////////////////////////////////////////////////////////////////////////////\n");
-    printf("///            = = = = = = Relatório de Produtos = = = = = = = = = = = = =    ///\n");
+    printf("///            = = = = = Relatório de Produtos = = = =                      ///\n");
     relatorio_produto();
     printf("/////////////////////////////////////////////////////////////////////////////////\n");
 }
