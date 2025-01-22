@@ -1,11 +1,106 @@
 #include "relatorio_pessoa.h"
 #include "../pessoa/pessoa.h"
-#include "../pessoa/pessoa_arquivo.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 #define ARQUIVO "pessoas.dat"
+
+void filtrarPorNome(const char *nomeFiltro) {
+    FILE *arquivo = fopen(ARQUIVO, "rb");
+    if (!arquivo) {
+        perror("Erro ao abrir o arquivo para leitura");
+        return;
+    }
+
+    Pessoa entrada;
+    int encontrado = 0;
+
+    printf("Relatório de Pessoas (Filtrado por Nome: %s):\n", nomeFiltro);
+    printf("-------------------------\n");
+
+    while (fread(&entrada, sizeof(Pessoa), 1, arquivo)) {
+        if (strstr(entrada.nome, nomeFiltro)) {
+            encontrado = 1;
+            printf("Nome: %s\n", entrada.nome);
+            printf("Idade: %s\n", entrada.idade);
+            printf("Email: %s\n", entrada.email);
+            printf("Telefone: %s\n", entrada.telefone);
+            printf("CPF: %s\n", entrada.cpf);
+            printf("-------------------------\n");
+        }
+    }
+
+    if (!encontrado) {
+        printf("Nenhuma pessoa encontrada com o nome: %s\n", nomeFiltro);
+    }
+
+    fclose(arquivo);
+}
+
+void filtrarPorEmail(const char *emailFiltro) {
+    FILE *arquivo = fopen(ARQUIVO, "rb");
+    if (!arquivo) {
+        perror("Erro ao abrir o arquivo para leitura");
+        return;
+    }
+
+    Pessoa entrada;
+    int encontrado = 0;
+
+    printf("Relatório de Pessoas (Filtrado por Email: %s):\n", emailFiltro);
+    printf("-------------------------\n");
+
+    while (fread(&entrada, sizeof(Pessoa), 1, arquivo)) {
+        if (strcmp(entrada.email, emailFiltro) == 0) {
+            encontrado = 1;
+            printf("Nome: %s\n", entrada.nome);
+            printf("Idade: %s\n", entrada.idade);
+            printf("Email: %s\n", entrada.email);
+            printf("Telefone: %s\n", entrada.telefone);
+            printf("CPF: %s\n", entrada.cpf);
+            printf("-------------------------\n");
+        }
+    }
+
+    if (!encontrado) {
+        printf("Nenhuma pessoa encontrada com o email: %s\n", emailFiltro);
+    }
+
+    fclose(arquivo);
+}
+
+void filtrarPorIdade(const char *idadeFiltro) {
+    FILE *arquivo = fopen(ARQUIVO, "rb");
+    if (!arquivo) {
+        perror("Erro ao abrir o arquivo para leitura");
+        return;
+    }
+
+    Pessoa entrada;
+    int encontrado = 0;
+
+    printf("Relatório de Pessoas (Filtrado por Idade: %s):\n", idadeFiltro);
+    printf("-------------------------\n");
+
+    while (fread(&entrada, sizeof(Pessoa), 1, arquivo)) {
+        if (strcmp(entrada.idade, idadeFiltro) == 0) {
+            encontrado = 1;
+            printf("Nome: %s\n", entrada.nome);
+            printf("Idade: %s\n", entrada.idade);
+            printf("Email: %s\n", entrada.email);
+            printf("Telefone: %s\n", entrada.telefone);
+            printf("CPF: %s\n", entrada.cpf);
+            printf("-------------------------\n");
+        }
+    }
+
+    if (!encontrado) {
+        printf("Nenhuma pessoa encontrada com a idade: %s\n", idadeFiltro);
+    }
+
+    fclose(arquivo);
+}
 
 void inicializarArquivoPessoas() {
     FILE *arquivo = fopen(ARQUIVO, "ab");
