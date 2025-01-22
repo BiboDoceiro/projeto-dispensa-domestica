@@ -5,10 +5,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define PESSOAS_ARQUIVO "pessoas.dat"
+#define ARQUIVO "pessoas.dat"
 
 void inicializarArquivoPessoas() {
-    FILE *arquivo = fopen(PESSOAS_ARQUIVO, "ab");
+    FILE *arquivo = fopen(ARQUIVO, "ab");
     if (arquivo == NULL) {
         perror("Erro ao criar o arquivo de pessoas");
         exit(EXIT_FAILURE);
@@ -33,6 +33,7 @@ void relatorio_pessoa(void) {
         printf("///            Escolha a opção desejada: ");
         scanf("%d", &opcao);
         getchar(); // Limpa o buffer do teclado
+
 
         switch (opcao) {
             case 1:

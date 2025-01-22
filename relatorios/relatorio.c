@@ -8,6 +8,7 @@
 void menu_relatorios(void){
      int escolha;
      do{
+        system("clear||cls");
         printf("\n");
         printf("///////////////////////////////////////////////////////////////////////////////\n");
         printf("///            = = = = = = = = = Menu Relatórios = = = = = = = = =          ///\n");
