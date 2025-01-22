@@ -27,8 +27,8 @@ void tela_sobre(void) {
     printf("///                  Disciplina DCT1106 -- Programação                      ///\n");
     printf("///            Projeto Sistema de Gestão Para Despensa Domestica            ///\n");
     printf("///                  Developed by @cailucas_lm, @lelebiglove                ///\n");
-    printf("///                                         e                               ///\n");
-    printf("///                                 @kaique_vieira_1                        ///\n");
+    printf("///                               @kaique_vieira_1 e @ismael.gsilva         ///\n");
+    printf("///                                                                         ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -62,6 +62,7 @@ void tela_equipe(void) {
     printf("///            Caio Lucas Lopes Medeiros                            ///\n");
     printf("///            Leandro Isaac Correia de Brito                       ///\n");
     printf("///            Kaique Vieira Soares                                 ///\n");
+    printf("///            Ismael Gomes da Silva                                ///\n");
     printf("///////////////////////////////////////////////////////////////////////\n");
     printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");

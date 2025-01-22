@@ -5,7 +5,11 @@
 #include <stdlib.h>
 
 void inicializarArquivoOrcamentos();
-void gerarRelatorioOrcamentos();
+double listarRelatoriosOrcamentos();
+void menu_relatorio_orcamento(void);
 double calcularTotal();
+void filtrar_orcamento_por_descricao(const char *descricaoFiltro);
+void filtrar_orcamento_por_valor(const char *valorFiltro);
+
 
 #endif

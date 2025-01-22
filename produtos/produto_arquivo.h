@@ -1,7 +1,7 @@
 #ifndef PRODUTO_ARQUIVO_H
 #define PRODUTO_ARQUIVO_H
 
-#include "produtos.h"
+#include "../pessoa/pessoa.h"
 
 void salvar_produto_arquivo(const Produto *produto);
 void carregar_produtos_arquivo(Produto **produtos, int *qtd_produtos);
