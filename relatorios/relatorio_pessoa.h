@@ -5,6 +5,6 @@
 #include <stdlib.h>
 
 void inicializarArquivoPessoas();
-void gerarRelatorioPessoas();
+void relatorio_pessoa();
 
 #endif

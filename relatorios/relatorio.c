@@ -49,7 +49,7 @@ void relatorios_pessoa(void)
     system("clear||cls");
     printf("\n///////////////////////////////////////////////////////////////////////////////\n");
     printf("///            = = = = = = = Relatório de Pessoas = = = = = = = = = = = =     ///\n");
-    gerarRelatorioPessoas();
+    relatorio_pessoa();
     printf("/////////////////////////////////////////////////////////////////////////////////\n");
 }
 
