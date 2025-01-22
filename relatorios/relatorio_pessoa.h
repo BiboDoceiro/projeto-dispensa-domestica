@@ -5,10 +5,6 @@
 #include <stdlib.h>
 
 void inicializarArquivoPessoas();
-void gerarRelatorioPessoa(void);
-void filtrarPorNome(const char *nomeFiltro);
-void filtrarPorEmail(const char *emailFiltro);
-void filtrarPorIdade(const char *idadeFiltro);
-
+void relatorio_pessoa();
 
 #endif
