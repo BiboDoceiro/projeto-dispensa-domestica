@@ -66,6 +66,6 @@ void relatorios_produto(void) {
     system("clear||cls");
     printf("\n///////////////////////////////////////////////////////////////////////////////\n");
     printf("///            = = = = = = Relatório de Produtos = = = = = = = = = = = = =    ///\n");
-    gerarRelatorioProdutos();
+    relatorio_produto();
     printf("/////////////////////////////////////////////////////////////////////////////////\n");
 }
