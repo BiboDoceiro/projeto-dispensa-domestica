@@ -17,35 +17,64 @@ void inicializarArquivoOrcamentos() {
 
 double listarRelatoriosOrcamentos() {
     FILE *arquivo = fopen(ORCAMENTO_ARQUIVO, "rb");
-    if (arquivo == NULL) {
+    if (!arquivo) {
         perror("Erro ao abrir o arquivo para leitura");
-        exit(EXIT_FAILURE);
+        return 0.0;
     }
 
-    double total = 0;
-    Orcamento entrada;
+    // Contar quantos orçamentos existem no arquivo
+    fseek(arquivo, 0, SEEK_END);
+    long tamanhoArquivo = ftell(arquivo);
+    fseek(arquivo, 0, SEEK_SET);
 
+    int quantidadeOrcamentos = tamanhoArquivo / sizeof(Orcamento);
+    if (quantidadeOrcamentos == 0) {
+        printf("Nenhum orçamento encontrado no arquivo.\n");
+        fclose(arquivo);
+        return 0.0;
+    }
+
+    // Alocar memória para os orçamentos
+    Orcamento *orcamentos = malloc(quantidadeOrcamentos * sizeof(Orcamento));
+    if (!orcamentos) {
+        perror("Erro ao alocar memória");
+        fclose(arquivo);
+        return 0.0;
+    }
+
+    // Ler os orçamentos do arquivo
+    fread(orcamentos, sizeof(Orcamento), quantidadeOrcamentos, arquivo);
+    fclose(arquivo);
+
+    // Função de comparação para ordenar os orçamentos por descrição
+    int compararPorDescricao(const void *a, const void *b) {
+        Orcamento *orcamentoA = (Orcamento *)a;
+        Orcamento *orcamentoB = (Orcamento *)b;
+        return strcmp(orcamentoA->descricao, orcamentoB->descricao);
+    }
+
+    // Ordenar os orçamentos
+    qsort(orcamentos, quantidadeOrcamentos, sizeof(Orcamento), compararPorDescricao);
+
+    // Exibir os orçamentos ordenados
     printf("\n///////////////////////////////////////////////////////////////////////////////\n");
-    printf("///            = = = = = Relatório Detalhado de Orçamentos = = = = =        ///\n");
+    printf("///            = = = = = Orçamentos em Ordem Alfabética = = = = =          ///\n");
     printf("///                                                                         ///\n");
 
-    while (fread(&entrada, sizeof(Orcamento), 1, arquivo) > 0) {
-        printf("ID: %d\n", entrada.id);
-        printf("Descrição: %s\n", entrada.descricao);
-        printf("Valor: R$ %s\n", entrada.valor);
-
-        total += atof(entrada.valor); // Soma o valor total
+    for (int i = 0; i < quantidadeOrcamentos; i++) {
+        printf("ID: %d\n", orcamentos[i].id);
+        printf("Descrição: %s\n", orcamentos[i].descricao);
+        printf("Valor: R$ %s\n", orcamentos[i].valor);
         printf("-------------------------\n");
     }
 
-    printf("///                                                                         ///\n");
-    printf("///            Valor Total dos Orçamentos: R$ %.2f                          ///\n", total);
-    printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
 
-    fclose(arquivo);
-    return total;
+    // Liberar memória alocada
+    free(orcamentos);
+    return 0.0;
 }
+
 void menu_relatorio_orcamento(void) {
     int opcao;
     char criterio[100];
