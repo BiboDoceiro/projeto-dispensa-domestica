@@ -15,6 +15,67 @@ void inicializarArquivoProdutos() {
     fclose(arquivo);
 }
 
+void listarRelatoriosProdutos() {
+    FILE *arquivo = fopen(PRODUTOS_ARQUIVO, "rb");
+    if (!arquivo) {
+        perror("Erro ao abrir o arquivo de produtos para leitura");
+        return;
+    }
+
+    // Contar quantos produtos existem no arquivo
+    fseek(arquivo, 0, SEEK_END);
+    long tamanhoArquivo = ftell(arquivo);
+    fseek(arquivo, 0, SEEK_SET);
+
+    int quantidadeProdutos = tamanhoArquivo / sizeof(Produto);
+    if (quantidadeProdutos == 0) {
+        printf("Nenhum produto encontrado no arquivo.\n");
+        fclose(arquivo);
+        return;
+    }
+
+    // Alocar memória para os produtos
+    Produto *produtos = malloc(quantidadeProdutos * sizeof(Produto));
+    if (!produtos) {
+        perror("Erro ao alocar memória");
+        fclose(arquivo);
+        return;
+    }
+
+    // Ler os produtos do arquivo
+    fread(produtos, sizeof(Produto), quantidadeProdutos, arquivo);
+    fclose(arquivo);
+
+    // Função de comparação para ordenar os produtos por nome
+    int compararPorNome(const void *a, const void *b) {
+        Produto *produtoA = (Produto *)a;
+        Produto *produtoB = (Produto *)b;
+        return strcmp(produtoA->nome, produtoB->nome);
+    }
+
+    // Ordenar os produtos
+    qsort(produtos, quantidadeProdutos, sizeof(Produto), compararPorNome);
+
+    // Exibir os produtos ordenados
+    printf("\n///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///            = = = = = Relatório de Produtos em Ordem Alfabética = = = = = ///\n");
+    printf("///                                                                         ///\n");
+
+    for (int i = 0; i < quantidadeProdutos; i++) {
+        printf("ID Código: %d\n", produtos[i].id_codigo);
+        printf("Nome: %s\n", produtos[i].nome);
+        printf("Marca: %s\n", produtos[i].marca);
+        printf("Quantidade em Estoque: %d\n", produtos[i].quantidade_estoque);
+        printf("Valor: %s\n", produtos[i].valor);
+        printf("-------------------------\n");
+    }
+
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+
+    // Liberar memória alocada
+    free(produtos);
+}
+
 void filtrarPorNomeProduto(const char *nomeFiltro) {
     FILE *arquivo = fopen(PRODUTOS_ARQUIVO, "rb");
     if (!arquivo) {
@@ -120,10 +181,11 @@ void relatorio_produto(void) {
         printf("\n///////////////////////////////////////////////////////////////////////////////\n");
         printf("///            = = = = = Relatório de Produtos = = = = = = = = = =          ///\n");
         printf("///                                                                         ///\n");
-        printf("///            1. Filtrar por Nome                                          ///\n");
-        printf("///            2. Filtrar por Marca                                         ///\n");
-        printf("///            3. Filtrar por Valor                                         ///\n");
-        printf("///            0. Voltar ao Menu Anterior                                   ///\n");
+        printf("///            1. Exibir Todos os Produtos                                 ///\n");
+        printf("///            2. Filtrar por Nome                                         ///\n");
+        printf("///            3. Filtrar por Marca                                        ///\n");
+        printf("///            4. Filtrar por Valor                                        ///\n");
+        printf("///            0. Voltar ao Menu Anterior                                  ///\n");
         printf("///                                                                         ///\n");
         printf("///            Escolha a opção desejada: ");
         scanf("%d", &opcao);
@@ -131,6 +193,13 @@ void relatorio_produto(void) {
 
         switch (opcao) {
             case 1:
+                printf("\n///////////////////////////////////////////////////////////////////////////////\n");
+                listarRelatoriosProdutos();
+                printf("\n\t\t\t>>> Tecle <ENTER> para continuar...\n");
+                getchar();
+                break;
+
+            case 2:
                 printf("\n///////////////////////////////////////////////////////////////////////////////\n");
                 printf("///            Informe o Nome para Filtragem: ");
                 fgets(criterio, sizeof(criterio), stdin);
@@ -140,7 +209,7 @@ void relatorio_produto(void) {
                 getchar();
                 break;
 
-            case 2:
+            case 3:
                 printf("\n///////////////////////////////////////////////////////////////////////////////\n");
                 printf("///            Informe a Marca para Filtragem: ");
                 fgets(criterio, sizeof(criterio), stdin);
@@ -150,7 +219,7 @@ void relatorio_produto(void) {
                 getchar();
                 break;
 
-            case 3:
+            case 4:
                 printf("\n///////////////////////////////////////////////////////////////////////////////\n");
                 printf("///            Informe o Valor para Filtragem: ");
                 fgets(criterio, sizeof(criterio), stdin);
